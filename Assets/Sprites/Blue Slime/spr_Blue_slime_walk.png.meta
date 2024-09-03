@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2f1fac465bf271488c81ccc12e8c3ad
+guid: b6cfee3534062b2478f24137c83176e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -106,6 +106,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -124,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a74e0a774057940bf2f84e74846aab
-      internalID: 672490176
+      spriteID: d6c8212f5a12086458229a6c54e5ec4e
+      internalID: -1152533984
       vertices: []
       indices: 
       edges: []
@@ -145,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 975214ca8f6e850468ca8d9c37f65286
-      internalID: 680546624
+      spriteID: 5b0d8bdd06b09eb47a475130cb56d7f6
+      internalID: 839022286
       vertices: []
       indices: 
       edges: []
@@ -166,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 770c476bd64c1044a851f4159f58e4ab
-      internalID: -215622355
+      spriteID: 46ef8a19d915bae4595454db465aa228
+      internalID: -283693820
       vertices: []
       indices: 
       edges: []
@@ -187,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5277b893ecbe82d45a34042d9481a6c9
-      internalID: -416962489
+      spriteID: 4da64e47ba8423f4798ed3aabbee8f74
+      internalID: -1928371297
       vertices: []
       indices: 
       edges: []
@@ -208,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90492dc2e59d46d4f9674fec30e8738f
-      internalID: 148055539
+      spriteID: 1fb5b48a2b509554ba0b442779b61312
+      internalID: 600551519
       vertices: []
       indices: 
       edges: []
@@ -229,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e77793f36d84bc94e8cca143d014c85c
-      internalID: -1656984469
+      spriteID: 038d6f075f56ff14e884b3d29fe84100
+      internalID: -1076215558
       vertices: []
       indices: 
       edges: []
@@ -246,12 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_Blue_slime_walk_0: 672490176
-      spr_Blue_slime_walk_1: 680546624
-      spr_Blue_slime_walk_2: -215622355
-      spr_Blue_slime_walk_3: -416962489
-      spr_Blue_slime_walk_4: 148055539
-      spr_Blue_slime_walk_5: -1656984469
+      spr_Blue_slime_walk_0: -1152533984
+      spr_Blue_slime_walk_1: 839022286
+      spr_Blue_slime_walk_2: -283693820
+      spr_Blue_slime_walk_3: -1928371297
+      spr_Blue_slime_walk_4: 600551519
+      spr_Blue_slime_walk_5: -1076215558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
