@@ -15,6 +15,11 @@ public class PausePanel : MonoBehaviour
         isPlaying = true;
     }
 
+    public bool GetPauseStatus()
+    {
+        return isPlaying;
+    }
+
     private void OnEnable()
     {
         pauseButton.Enable();

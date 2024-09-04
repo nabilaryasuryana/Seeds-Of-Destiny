@@ -3,30 +3,64 @@ using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
-    // List untuk menyimpan item dalam inventory
-    public List<Item> items = new List<Item>();
+    public List<Item> items = new List<Item>(); // Daftar item dalam inventory
+    public Transform playerTransform; // Transformasi player untuk menentukan posisi drop item
     public int maxInventorySize = 20;
+    private Item selectedItem; // Item yang sedang dipilih
 
-    // Method untuk menambahkan item ke dalam inventory
     public bool AddItem(Item item)
     {
-        if (items.Count >= maxInventorySize)
+        if (items.Count < maxInventorySize) // Maksimal 20 item
         {
-            Debug.Log("Inventory penuh!");
-            return false;
+            items.Add(item);
+            return true;
         }
-        items.Add(item);
-        Debug.Log(item.itemName + " telah ditambahkan ke inventory.");
-        return true;
+        return false;
     }
 
-    // Method untuk menghapus item dari inventory
-    public void RemoveItem(Item item)
+    public void DropSelectedItem()
     {
-        if (items.Contains(item))
+        if (selectedItem != null && items.Contains(selectedItem))
         {
-            items.Remove(item);
-            Debug.Log(item.itemName + " telah dihapus dari inventory.");
+            items.Remove(selectedItem);
+
+            // Cek apakah item memiliki prefab untuk dijatuhkan
+            if (selectedItem.itemPrefab != null)
+            {
+                // Instantiate prefab di posisi dekat player
+                Vector3 dropPosition = playerTransform.position + playerTransform.forward;
+                Instantiate(selectedItem.itemPrefab, dropPosition, Quaternion.identity);
+            }
+            selectedItem = null; // Reset setelah drop
         }
+    }
+
+    public void SelectItem(Item item)
+    {
+        selectedItem = item; // Set item yang dipilih
+    }
+
+    public void UseSelectedItem()
+    {
+        if (selectedItem != null)
+        {
+            // Tambahkan logika penggunaan item (sesuaikan dengan kebutuhan game)
+            Debug.Log("Using item: " + selectedItem.itemName);
+            selectedItem = null; // Reset setelah penggunaan
+        }
+    }
+
+    public void MoveItem(int fromIndex, int toIndex)
+    {
+        if (fromIndex < 0 || toIndex < 0 || fromIndex >= items.Count || toIndex >= items.Count)
+        {
+            Debug.LogWarning("Invalid index for moving item");
+            return;
+        }
+
+        // Tukar item di antara dua slot
+        Item temp = items[toIndex];
+        items[toIndex] = items[fromIndex];
+        items[fromIndex] = temp;
     }
 }

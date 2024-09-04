@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2210fa563f6dba942b80785cae424bad, type: 3}
-  m_Name: Moon
+  m_Name: Moon2
   m_EditorClassIdentifier: 
-  itemName: Moon
-  itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  description: This is a developing item
+  itemName: 
+  itemIcon: {fileID: 0}
+  description: 
