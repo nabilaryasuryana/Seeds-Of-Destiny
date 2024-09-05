@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class InventoryUIManager : MonoBehaviour
 {
     [Header("Configuration")]
     public GameObject inventoryPanel; // Panel tempat slot item berada
     public GameObject slotPrefab; // Prefab slot item
+    public GameObject emptySlotPrefab; // Prefab slot kosong (placeholder)
     public InventorySystem playerInventory; // Referensi ke InventorySystem milik Player
     public int maxSlots = 20; // Maksimal slot inventory
     public InputAction openButton; // Tombol untuk membuka/tutup inventory
@@ -23,6 +23,7 @@ public class InventoryUIManager : MonoBehaviour
         UpdateInventoryUI();
         toggleInventory = false;
         pausePanel = FindObjectOfType<PausePanel>();
+        playerInventory = FindObjectOfType<InventorySystem>();
     }
 
     private void OnEnable()
@@ -40,6 +41,7 @@ public class InventoryUIManager : MonoBehaviour
     private void OnOpenButtonPressed(InputAction.CallbackContext context)
     {
         toggleInventory = !toggleInventory; // Toggle status buka/tutup inventory
+        UpdateInventoryUI();
     }
 
     void Update()
@@ -73,10 +75,19 @@ public class InventoryUIManager : MonoBehaviour
         // Tambahkan slot baru untuk setiap item di inventory
         for (int i = 0; i < maxSlots; i++)
         {
-            GameObject newSlot = Instantiate(slotPrefab, inventoryPanel.transform);
-            SlotItemUI slotUI = newSlot.GetComponent<SlotItemUI>();
+            GameObject newSlot;
+            if (i < playerInventory.items.Count)
+            {
+                // Gunakan prefab slot item dengan item
+                newSlot = Instantiate(slotPrefab, inventoryPanel.transform);
+            }
+            else
+            {
+                // Gunakan prefab slot kosong (placeholder)
+                newSlot = Instantiate(emptySlotPrefab, inventoryPanel.transform);
+            }
 
-            // Periksa apakah index berada dalam jangkauan item yang ada
+            SlotItemUI slotUI = newSlot.GetComponent<SlotItemUI>();
             if (i < playerInventory.items.Count)
             {
                 // Set item di slot berdasarkan index
