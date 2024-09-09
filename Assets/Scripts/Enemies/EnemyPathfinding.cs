@@ -11,29 +11,42 @@ public class EnemyPathfinding : MonoBehaviour
     private Knockback knockback;
     private SpriteRenderer spriteRenderer;
 
-    private void Awake() {
+    private void Awake()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
         knockback = GetComponent<Knockback>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
+        // Jika enemy sedang terkena knockback, maka abaikan pergerakan
         if (knockback.GettingKnockedBack) { return; }
 
+        // Memindahkan posisi Rigidbody berdasarkan arah pergerakan dan kecepatan
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
-        if (moveDir.x < 0) {
+        // Menentukan arah flip sprite berdasarkan arah pergerakan
+        if (moveDir.x < 0)
+        {
             spriteRenderer.flipX = true;
-        } else if (moveDir.x > 0) {
+        }
+        else if (moveDir.x > 0)
+        {
             spriteRenderer.flipX = false;
         }
     }
 
-    public void MoveTo(Vector2 targetPosition) {
-        moveDir = targetPosition;
+    // Fungsi untuk mengatur arah pergerakan menuju posisi target
+    public void MoveTo(Vector2 targetPosition)
+    {
+        // Menghitung arah dari posisi saat ini menuju posisi target
+        moveDir = (targetPosition - rb.position).normalized;
     }
 
-    public void StopMoving() {
-        moveDir = Vector3.zero;
+    // Fungsi untuk menghentikan pergerakan enemy
+    public void StopMoving()
+    {
+        moveDir = Vector2.zero;
     }
 }
