@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUIManager : MonoBehaviour
 {
     [Header("Configuration")]
     public GameObject inventoryPanel; // Panel tempat slot item berada
     public GameObject slotPrefab; // Prefab slot item
+    public GameObject emptySlotPrefab; // Prefab slot kosong (placeholder)
     public InventorySystem playerInventory; // Referensi ke InventorySystem milik Player
     public int maxSlots = 20; // Maksimal slot inventory
     public InputAction openButton; // Tombol untuk membuka/tutup inventory
@@ -20,10 +21,18 @@ public class InventoryUIManager : MonoBehaviour
 
     void Start()
     {
+        playerInventory = FindObjectOfType<InventorySystem>(); // Pindahkan ini sebelum UpdateInventoryUI
+        if (playerInventory == null)
+        {
+            Debug.LogError("InventorySystem not found!");
+            return; // Mencegah UpdateInventoryUI jika playerInventory tidak ditemukan
+        }
+
+        pausePanel = FindObjectOfType<PausePanel>();
         UpdateInventoryUI();
         toggleInventory = false;
-        pausePanel = FindObjectOfType<PausePanel>();
     }
+
 
     private void OnEnable()
     {
@@ -40,6 +49,7 @@ public class InventoryUIManager : MonoBehaviour
     private void OnOpenButtonPressed(InputAction.CallbackContext context)
     {
         toggleInventory = !toggleInventory; // Toggle status buka/tutup inventory
+        UpdateInventoryUI();
     }
 
     void Update()
@@ -62,21 +72,33 @@ public class InventoryUIManager : MonoBehaviour
 
     // Method untuk memperbarui tampilan UI inventory
     public void UpdateInventoryUI()
+{
+    // Bersihkan slot yang lama
+    foreach (SlotItemUI slot in slots)
     {
-        // Bersihkan slot yang lama
-        foreach (SlotItemUI slot in slots)
+        Destroy(slot.gameObject);
+    }
+    slots.Clear();
+
+    // Tambahkan slot baru untuk setiap item di inventory
+    for (int i = 0; i < maxSlots; i++)
+    {
+        GameObject newSlot;
+        if (i < playerInventory.items.Count)
         {
-            Destroy(slot.gameObject);
+            // Gunakan prefab slot item dengan item
+            newSlot = Instantiate(slotPrefab, inventoryPanel.transform);
         }
-        slots.Clear();
-
-        // Tambahkan slot baru untuk setiap item di inventory
-        for (int i = 0; i < maxSlots; i++)
+        else
         {
-            GameObject newSlot = Instantiate(slotPrefab, inventoryPanel.transform);
-            SlotItemUI slotUI = newSlot.GetComponent<SlotItemUI>();
+            // Gunakan prefab slot kosong (placeholder)
+            newSlot = Instantiate(emptySlotPrefab, inventoryPanel.transform);
+            newSlot.SetActive(true); // Pastikan slot kosong dalam keadaan aktif
+        }
 
-            // Periksa apakah index berada dalam jangkauan item yang ada
+        SlotItemUI slotUI = newSlot.GetComponent<SlotItemUI>();
+        if (slotUI != null)
+        {
             if (i < playerInventory.items.Count)
             {
                 // Set item di slot berdasarkan index
@@ -90,7 +112,13 @@ public class InventoryUIManager : MonoBehaviour
 
             slots.Add(slotUI);
         }
+        else
+        {
+            Debug.LogError("SlotItemUI component not found on instantiated slot.");
+        }
     }
+}
+
 
     // Set slot yang dipilih
     public void SetSelectedSlot(SlotItemUI slot)
@@ -101,6 +129,18 @@ public class InventoryUIManager : MonoBehaviour
         }
         selectedSlot = slot;
         selectedSlot.Select();
+
+        // Tampilkan informasi item saat slot dipilih
+        UpdateItemInfoDisplay(selectedSlot.GetItem());
+    }
+
+    private void UpdateItemInfoDisplay(Item selectedItem)
+    {
+        if (selectedItem != null)
+        {
+            // Gunakan UIManager untuk menampilkan informasi item yang dipilih
+            UIManager.Instance.DisplayItemInfo(selectedItem);
+        }
     }
 
     // Menggunakan item yang dipilih
@@ -109,7 +149,6 @@ public class InventoryUIManager : MonoBehaviour
         if (selectedSlot != null)
         {
             playerInventory.UseSelectedItem();
-            UpdateInventoryUI(); // Refresh UI setelah penggunaan item
         }
     }
 
