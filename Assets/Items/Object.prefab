@@ -466,7 +466,7 @@ MonoBehaviour:
       m_Action: Pick Button
       m_Flags: 0
     m_Flags: 0
-  item: {fileID: 11400000, guid: 92c86ceb33669ee4894306fa74de1fd8, type: 2}
+  item: {fileID: 11400000, guid: a10703210231d924c96407216229730e, type: 2}
   inventoryUIManager: {fileID: 0}
 --- !u!1 &9094092013703538464
 GameObject:

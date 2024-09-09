@@ -3,14 +3,29 @@ using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
+    // Singleton instance
+    public static InventorySystem Instance { get; private set; }
+
     public List<Item> items = new List<Item>(); // Daftar item dalam inventory
     public Transform playerTransform; // Transformasi player untuk menentukan posisi drop item
-    public int maxInventorySize = 20;
+    public int maxInventorySize = 20; // Maksimal ukuran inventory
     private Item selectedItem; // Item yang sedang dipilih
 
+    private void Awake()
+    {
+        // Implementasi Singleton Pattern
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Hancurkan instance lain jika sudah ada
+            return;
+        }
+        Instance = this;
+    }
+
+    // Menambahkan item ke dalam inventory
     public bool AddItem(Item item)
     {
-        if (items.Count < maxInventorySize) // Maksimal 20 item
+        if (items.Count < maxInventorySize) // Cek jika masih ada ruang di inventory
         {
             items.Add(item);
             return true;
@@ -18,6 +33,25 @@ public class InventorySystem : MonoBehaviour
         return false;
     }
 
+    // Menggunakan item yang dipilih
+    public void UseSelectedItem()
+    {
+        if (selectedItem != null)
+        {
+            selectedItem.Use(); // Panggil metode Use() pada item
+
+            // Jika item destroyable, hapus dari inventory
+            if (selectedItem.destroyable && items.Contains(selectedItem))
+            {
+                items.Remove(selectedItem);
+                Debug.Log($"{selectedItem.itemName} has been used and destroyed.");
+            }
+
+            selectedItem = null; // Reset setelah penggunaan
+        }
+    }
+
+    // Menghapus (drop) item yang dipilih dari inventory dan meletakkannya di dunia game
     public void DropSelectedItem()
     {
         if (selectedItem != null && items.Contains(selectedItem))
@@ -35,21 +69,13 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    // Memilih item untuk digunakan atau dipindahkan
     public void SelectItem(Item item)
     {
         selectedItem = item; // Set item yang dipilih
     }
 
-    public void UseSelectedItem()
-    {
-        if (selectedItem != null)
-        {
-            // Tambahkan logika penggunaan item (sesuaikan dengan kebutuhan game)
-            Debug.Log("Using item: " + selectedItem.itemName);
-            selectedItem = null; // Reset setelah penggunaan
-        }
-    }
-
+    // Memindahkan item dari satu slot ke slot lain
     public void MoveItem(int fromIndex, int toIndex)
     {
         if (fromIndex < 0 || toIndex < 0 || fromIndex >= items.Count || toIndex >= items.Count)

@@ -44,9 +44,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
         }
     }
 
-    public void HealPlayer() {
+    public void HealPlayer(int amount) {
         if (currentHealth < maxHealth) {
-            currentHealth += 1;
+            currentHealth += amount;
             UpdateHealthSlider();
         }
     }

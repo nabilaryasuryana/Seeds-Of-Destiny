@@ -102,4 +102,10 @@ public class SlotItemUI : MonoBehaviour
         itemMenu.SetActive(false);
         GetComponent<Image>().color = Color.white; // Reset ke warna awal
     }
+
+    // Metode untuk mendapatkan item saat ini
+    public Item GetItem()
+    {
+        return currentItem;
+    }
 }
