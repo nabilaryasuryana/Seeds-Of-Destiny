@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene5.unity
     guid: 6cb7316f81fde2e4dbbeb203b50175a7
+  - enabled: 1
+    path: Assets/Scenes/SceneDojo.unity
+    guid: d5ed6d39e11ff8f45b5cceb71035235d
   m_configObjects: {}
