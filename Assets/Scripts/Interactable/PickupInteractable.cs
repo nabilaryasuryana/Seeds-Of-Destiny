@@ -9,6 +9,8 @@ public class PickupInteractable : BaseInteractable
     public InputAction pickButton;
     public Item item;
     public InventoryUIManager inventoryUIManager;
+    private ItemDropAnimator itemDropAnimator; // Tambahkan referensi ke ItemDropAnimator
+    private bool canInteract = false; // Cegah interaksi selama animasi drop
 
     protected override void Awake()
     {
@@ -17,6 +19,7 @@ public class PickupInteractable : BaseInteractable
         {
             canvas.SetActive(false); // Sembunyikan canvas di awal
         }
+
         // Coba cari InventoryUIManager jika belum di-assign
         if (inventoryUIManager == null)
         {
@@ -27,6 +30,19 @@ public class PickupInteractable : BaseInteractable
             {
                 Debug.LogError("InventoryUIManager not found in the scene! Please make sure it exists.");
             }
+        }
+
+        // Cari komponen ItemDropAnimator
+        itemDropAnimator = GetComponent<ItemDropAnimator>();
+        if (itemDropAnimator != null)
+        {
+            // Jalankan animasi drop dan cegah interaksi hingga selesai
+            StartCoroutine(PlayDropAnimation());
+        }
+        else
+        {
+            // Jika tidak ada ItemDropAnimator, langsung izinkan interaksi
+            canInteract = true;
         }
     }
 
@@ -44,7 +60,7 @@ public class PickupInteractable : BaseInteractable
 
     private void OnPickButtonPressed(InputAction.CallbackContext context)
     {
-        if (isPlayerNearby)
+        if (isPlayerNearby && canInteract) // Tambahkan pengecekan canInteract
         {
             HandleInteraction();
         }
@@ -76,5 +92,13 @@ public class PickupInteractable : BaseInteractable
                 break;
             }
         }
+    }
+
+    // Coroutine untuk memainkan animasi drop dan menunda interaksi hingga selesai
+    private IEnumerator PlayDropAnimation()
+    {
+        canInteract = false; // Cegah interaksi saat animasi berlangsung
+        yield return itemDropAnimator.AnimCurveSpawnRoutine(); // Tunggu hingga animasi selesai
+        canInteract = true; // Izinkan interaksi setelah animasi selesai
     }
 }
