@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 1313750980603643173}
   - component: {fileID: 6160239915255023625}
   - component: {fileID: 5623727547946090529}
+  - component: {fileID: 2951579007516109607}
   m_Layer: 0
   m_Name: Object
   m_TagString: Untagged
@@ -466,8 +467,46 @@ MonoBehaviour:
       m_Action: Pick Button
       m_Flags: 0
     m_Flags: 0
-  item: {fileID: 11400000, guid: 92c86ceb33669ee4894306fa74de1fd8, type: 2}
+  item: {fileID: 11400000, guid: a10703210231d924c96407216229730e, type: 2}
   inventoryUIManager: {fileID: 0}
+--- !u!114 &2951579007516109607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458948900066641530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cf2583401999e4893774c1bcf6af3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popDuration: 1
+  heightY: 2
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.8683197
+      value: -0.0070264568
+      inSlope: -4.8364573
+      outSlope: -4.8364573
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.022238871
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9094092013703538464
 GameObject:
   m_ObjectHideFlags: 0

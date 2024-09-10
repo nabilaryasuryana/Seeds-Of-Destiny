@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2210fa563f6dba942b80785cae424bad, type: 3}
   m_Name: Moon2
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  description: 
+  itemName: Moon 2
+  itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  description: Ini adalah item debuger
+  itemPrefab: {fileID: 7458948900066641530, guid: c38b5035da5092146a5024a3e003f1b5, type: 3}
