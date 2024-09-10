@@ -5141,7 +5141,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
-
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -8996,6 +8995,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 915176607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1701551812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 536766214098066194, guid: 689f0b89dddc9ea43a7cbe38c8857baa, type: 3}
+  m_PrefabInstance: {fileID: 676445728044064555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1726436432
 GameObject:
   m_ObjectHideFlags: 0
@@ -19050,7 +19054,7 @@ PrefabInstance:
     - target: {fileID: 7475146916364985692, guid: 689f0b89dddc9ea43a7cbe38c8857baa, type: 3}
       propertyPath: inventoryContainer
       value: 
-      objectReference: {fileID: 225330468}
+      objectReference: {fileID: 1701551812}
     - target: {fileID: 8145615230455257015, guid: 689f0b89dddc9ea43a7cbe38c8857baa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -24387,4 +24391,7 @@ SceneRoots:
   - {fileID: 2030083887}
   - {fileID: 3225273402665985610}
   - {fileID: 915176607}
-
+  - {fileID: 1517501516}
+  - {fileID: 88167485}
+  - {fileID: 1913984433}
+  - {fileID: 1063111116}
