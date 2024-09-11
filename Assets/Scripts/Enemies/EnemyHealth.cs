@@ -11,10 +11,12 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
     private Knockback knockback;
     private Flash flash;
+    private BossDropRate bossDropRate;
 
     private void Awake() {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        bossDropRate = GetComponent<BossDropRate>();
     }
 
     private void Start() {
@@ -37,7 +39,21 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0) {
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             GetComponent<PickUpSpawner>().DropItems();
+            if (bossDropRate != null)
+            {
+                bossDropRate.DropItems();
+            }
             Destroy(gameObject);
         }
+    }
+
+    public int StartingHealth()
+    {
+        return startingHealth;
+    }
+
+    public int CurrentHealth()
+    {
+        return currentHealth;
     }
 }

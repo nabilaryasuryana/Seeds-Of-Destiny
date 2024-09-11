@@ -101,7 +101,7 @@ public class BossAI : MonoBehaviour
 
     private void Attacking()
     {
-        if (isAttacking) return; // Cegah serangan berulang saat serangan sedang berlangsung
+        if (isAttacking || isAttackOnCooldown) return; // Cegah serangan berulang saat serangan sedang berlangsung atau cooldown
 
         float distanceToPlayer = Vector2.Distance(transform.position, PlayerController.Instance.transform.position);
 

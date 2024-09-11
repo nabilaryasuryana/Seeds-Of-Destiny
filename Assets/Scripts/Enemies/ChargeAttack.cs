@@ -7,7 +7,6 @@ public class ChargeAttack : MonoBehaviour, IEnemy
     [SerializeField] private float maxChargeSpeed = 15f; // Kecepatan maksimum charge
     [SerializeField] private float maxChargeDamage = 5f; // Damage maksimum yang bisa diberikan
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private LayerMask playerLayer; // Layer untuk mendeteksi player
     [SerializeField] private TrailRenderer trailRenderer; // Referensi untuk Trail Renderer
     [SerializeField] private float chargeDuration = 5f; // Durasi charge
 
@@ -68,8 +67,11 @@ public class ChargeAttack : MonoBehaviour, IEnemy
     // Deteksi tabrakan dengan player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Cek apakah bos sedang charging dan bertabrakan dengan player
-        if (isCharging && ((1 << collision.gameObject.layer) & playerLayer) != 0)
+        // Cek apakah bos sedang charging
+        if (!isCharging) return;
+
+        // Cek apakah bos bertabrakan dengan objek yang memiliki tag "Player"
+        if (collision.gameObject.CompareTag("Player"))
         {
             // Hentikan charging setelah bertabrakan dengan player
             rb.velocity = Vector2.zero;
@@ -86,6 +88,17 @@ public class ChargeAttack : MonoBehaviour, IEnemy
 
             // Convert damage menjadi integer dan kirim ke PlayerHealth
             PlayerHealth.Instance.TakeDamage(Mathf.CeilToInt(calculatedDamage), transform);
+        }
+        else
+        {
+            // Jika bertabrakan dengan selain player (misalnya tembok), hentikan charge tanpa memberikan damage
+            rb.velocity = Vector2.zero;
+            isCharging = false;
+
+            if (trailRenderer != null)
+            {
+                trailRenderer.emitting = false; // Nonaktifkan Trail Renderer setelah tabrakan
+            }
         }
     }
 }
