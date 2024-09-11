@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Dialog System/Assets/Scripts/Audio/DialogueAudioInfoSO.cs.meta
-guid: 187eef24270cf2c43a96c6da47e7fa7d
-========
 guid: 33dccddab8b8c7c48901cefb85b8b971
->>>>>>>> f5767413679b6f1e4535cd82da29c9980b7123d5:Assets/Scripts/LoadingScene.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
