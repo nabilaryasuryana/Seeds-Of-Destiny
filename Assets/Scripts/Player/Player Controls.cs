@@ -216,7 +216,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Game"",
+            ""name"": ""game"",
             ""id"": ""e11edda6-98f0-4e67-8804-bc8778545e30"",
             ""actions"": [
                 {
@@ -276,10 +276,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_Keyboard = m_Inventory.FindAction("Keyboard", throwIfNotFound: true);
-        // Game
-        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
-        m_Game_interact = m_Game.FindAction("interact", throwIfNotFound: true);
-        m_Game_submit = m_Game.FindAction("submit", throwIfNotFound: true);
+        // game
+        m_game = asset.FindActionMap("game", throwIfNotFound: true);
+        m_game_interact = m_game.FindAction("interact", throwIfNotFound: true);
+        m_game_submit = m_game.FindAction("submit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -484,18 +484,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public InventoryActions @Inventory => new InventoryActions(this);
 
-    // Game
-    private readonly InputActionMap m_Game;
+    // game
+    private readonly InputActionMap m_game;
     private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
-    private readonly InputAction m_Game_interact;
-    private readonly InputAction m_Game_submit;
+    private readonly InputAction m_game_interact;
+    private readonly InputAction m_game_submit;
     public struct GameActions
     {
         private @PlayerControls m_Wrapper;
         public GameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @interact => m_Wrapper.m_Game_interact;
-        public InputAction @submit => m_Wrapper.m_Game_submit;
-        public InputActionMap Get() { return m_Wrapper.m_Game; }
+        public InputAction @interact => m_Wrapper.m_game_interact;
+        public InputAction @submit => m_Wrapper.m_game_submit;
+        public InputActionMap Get() { return m_Wrapper.m_game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
@@ -536,7 +536,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             AddCallbacks(instance);
         }
     }
-    public GameActions @Game => new GameActions(this);
+    public GameActions @game => new GameActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
