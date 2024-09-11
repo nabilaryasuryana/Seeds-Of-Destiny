@@ -4,13 +4,13 @@ INCLUDE globals.ink
 -> forest_encounter
 
 === forest_encounter ===
-#speaker:Narrator #portrait:narrator_portrait #layout:left #audio:forest_ambience
+#speaker:Narrator #portrait:narrator_portrait #layout:left #audio:animal_crossing_high
 Aiden walks cautiously through the dense forest, feeling a sense of unease as he ventures deeper into the unknown.
 
 #speaker:Narrator #portrait:narrator_portrait #layout:left
 Suddenly, a mysterious voice echoes through the trees, soft yet commanding, urging him forward.
 
-#speaker:??? #potrait:???
+#speaker:??? #potrait:unknown #layout:right
 Go ahead and follow the path to the right until you find the mysterious grave.
 
 #speaker:Narrator #portrait:narrator_portrait #layout:left

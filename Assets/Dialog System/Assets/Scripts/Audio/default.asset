@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: default
   dialogueTypingSoundClips:
-  - {fileID: 8300000, guid: cf6b635c0e8ac5e498e00670eae8d611, type: 3}
-  - {fileID: 8300000, guid: 8a68af9d93f5405428ac82bc833242bf, type: 3}
-  - {fileID: 8300000, guid: 912a5cca6a2b4154bbd5e34ce475a5fd, type: 3}
+  - {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
+  - {fileID: 8300000, guid: 030515f205b54fc478961cbe39c4e75e, type: 3}
+  - {fileID: 8300000, guid: 05b517e735c2cec4abd77c440b4c76ad, type: 3}
+  - {fileID: 8300000, guid: 9df4c2e414fd7d847978300d2a2b0213, type: 3}
   frequencyLevel: 2
-  minPitch: 0.5
-  maxPitch: 2
+  minPitch: 0.4
+  maxPitch: 0.45
   stopAudioSource: 1

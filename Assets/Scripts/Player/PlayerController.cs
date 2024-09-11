@@ -52,6 +52,10 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     private void FixedUpdate() {
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
         AdjustPlayerFacingDirection();
         Move();
     }
