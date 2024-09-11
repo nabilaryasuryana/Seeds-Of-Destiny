@@ -111,7 +111,7 @@
                 {
                     "name": "",
                     "id": "2090d226-78b6-4c6f-86e5-7d0efe781205",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -188,6 +188,54 @@
                     "processors": "Scale(factor=5)",
                     "groups": "",
                     "action": "Keyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Game",
+            "id": "e11edda6-98f0-4e67-8804-bc8778545e30",
+            "actions": [
+                {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "e9fa1403-6477-4642-ba5d-e13314fe6ee8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "submit",
+                    "type": "Button",
+                    "id": "a83f12e5-6ecc-4249-aa12-ffab3fa25742",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fb3ef38f-6aaf-46c4-ba15-2007d48de32a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7f5220d-e666-42d1-9450-d52597ea7852",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
