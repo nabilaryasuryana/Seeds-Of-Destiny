@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI; // Tambahkan ini untuk komponen UI Image
+using UnityEngine.SceneManagement; // Untuk perpindahan scene
 
 public class Prolog : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class Prolog : MonoBehaviour
     public CanvasGroup backgroundCanvasGroup; // CanvasGroup untuk fade effect
     public float fadeDuration = 1f; // Durasi fade in dan fade out
     public int[] imageChangeIndices; // Array berisi index dialog yang mengubah gambar
+    public string sceneToLoad; // Nama scene yang akan diload setelah dialog selesai
 
     private int index; // Indeks untuk melacak baris dialog saat ini
     private int currentBackgroundIndex; // Indeks untuk melacak background saat ini
+    private UIFadeWithSceneTransition fadeTransition; // Referensi ke UIFadeWithSceneTransition
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,10 @@ public class Prolog : MonoBehaviour
         currentBackgroundIndex = 0; // Set background pertama
         backgroundImage.sprite = backgroundImages[currentBackgroundIndex]; // Atur background awal
         backgroundCanvasGroup.alpha = 1f; // Set alpha ke 1 (sepenuhnya terlihat)
+
+        // Casting ke UIFadeWithSceneTransition
+        fadeTransition = (UIFadeWithSceneTransition)UIFade.Instance;
+
         StartDialogue(); // Memulai dialog
     }
 
@@ -82,7 +89,8 @@ public class Prolog : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false); // Sembunyikan objek jika semua baris telah selesai
+            // Jika dialog selesai, pindah scene
+            fadeTransition.TransitionToScene(sceneToLoad);
         }
     }
 
