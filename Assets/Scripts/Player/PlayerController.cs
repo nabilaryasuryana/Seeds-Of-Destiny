@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
-    
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -70,7 +68,11 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     private void Move() {
-        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
+        // Tambahkan pengecekan dialog di sini
+        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead || DialogueManager.GetInstance().dialogueIsPlaying) 
+        { 
+            return; 
+        }
 
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
