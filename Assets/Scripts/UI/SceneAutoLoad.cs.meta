@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Dialog System/Assets/Scripts/Dialogue/DialogueManager.cs.meta
+guid: 73bffb575d8cdcf42ba34ef7f5c34fae
+========
+guid: 30f11bb12f4d41d45b8ed2f8552b3cb0
+>>>>>>>> f5767413679b6f1e4535cd82da29c9980b7123d5:Assets/Scripts/UI/SceneAutoLoad.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
