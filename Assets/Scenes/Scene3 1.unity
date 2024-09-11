@@ -2167,8 +2167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6e47d4a1ff3264e9d1f0452b8c9b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Scene1
-  sceneTransitionName: WEntry
+  sceneToLoad: Scene2
+  sceneTransitionName: Scene 2 atas
 --- !u!61 &966955779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2222,15 +2222,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966955777}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.05, y: 22.92, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 12.04, y: -8.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1675317231}
   - {fileID: 1617281663}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1046811073
 GameObject:
   m_ObjectHideFlags: 0
@@ -22216,7 +22216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c571856cf83cca649a5408900d6b3446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionName: WEntry
+  transitionName: Scene 3 kanan
 --- !u!1 &1699631540
 GameObject:
   m_ObjectHideFlags: 0
@@ -40559,15 +40559,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2793081493360413545}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.34, y: -5.9, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -11.079897, y: -8.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8609367274118942579}
   - {fileID: 2910491184495189145}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &2010583925433850257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40580,7 +40580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c571856cf83cca649a5408900d6b3446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionName: Scene 2 kiri
+  transitionName: Scene 3 kiri
 --- !u!1 &2496282491813315581
 GameObject:
   m_ObjectHideFlags: 0
@@ -40796,7 +40796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scene1
-  sceneTransitionName: Scene 1 kanan
+  sceneTransitionName: Scene 1 atas
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

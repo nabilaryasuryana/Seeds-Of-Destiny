@@ -714,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 7475146916364985692, guid: 689f0b89dddc9ea43a7cbe38c8857baa, type: 3}
       propertyPath: playerInventory
       value: 
-      objectReference: {fileID: 1296345336}
+      objectReference: {fileID: 0}
     - target: {fileID: 7475146916364985692, guid: 689f0b89dddc9ea43a7cbe38c8857baa, type: 3}
       propertyPath: inventoryContainer
       value: 
@@ -1167,8 +1167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6e47d4a1ff3264e9d1f0452b8c9b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Scene1
-  sceneTransitionName: WEntry
+  sceneToLoad: Scene3 1
+  sceneTransitionName: Scene 3 kanan
 --- !u!61 &966955779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1589,17 +1589,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5622660947806307548, guid: ecd78b68589552440ac98a61e55dbd7d, type: 3}
   m_PrefabInstance: {fileID: 1279041424}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1296345336 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 569546783283402766, guid: ecd78b68589552440ac98a61e55dbd7d, type: 3}
-  m_PrefabInstance: {fileID: 1279041424}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296345335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc69ce470daf2ba4c997f36e85c632f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1353961739
 GameObject:
   m_ObjectHideFlags: 0
@@ -14687,7 +14676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c571856cf83cca649a5408900d6b3446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionName: WEntry
+  transitionName: Scene 2 atas
 --- !u!1001 &1711536766
 PrefabInstance:
   m_ObjectHideFlags: 0
