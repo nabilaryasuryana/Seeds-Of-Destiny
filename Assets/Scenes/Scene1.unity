@@ -23902,7 +23902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c571856cf83cca649a5408900d6b3446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionName: Scene 1 kanan
+  transitionName: Scene 1 atas
 --- !u!1001 &122473049942827694
 PrefabInstance:
   m_ObjectHideFlags: 0
