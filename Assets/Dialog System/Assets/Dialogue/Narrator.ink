@@ -13,6 +13,11 @@ Suddenly, a mysterious voice echoes through the trees, soft yet commanding, urgi
 #speaker:??? #potrait:unknown #layout:right
 Go ahead and follow the path to the right until you find the mysterious grave.
 
+#speaker:Aiden #potrait:Aiden #layout:left
+Wh-What, what was that!?
+
+Maybe i should follow the instruction
+
 #speaker:Narrator #portrait:narrator_portrait #layout:left
 Without knowing who or what spoke, Aiden feels compelled by the voice's mysterious nature. Trusting his instincts, he decides to follow the instructions, turning right and continuing his journey towards the unknown.
 

@@ -14,6 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private TextAsset inkJSON;
 
     private bool playerInRange;
+    public bool autoPlayOnEntered;
 
     private void Awake() 
     {
@@ -23,6 +24,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update() 
     {
+        if (autoPlayOnEntered)
+        {
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
+            Destroy(this);
+        }
+
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
         {
             visualCue.SetActive(true);
