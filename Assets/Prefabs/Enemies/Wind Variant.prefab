@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wind Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1628195546461135825, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f5cde8a0fbf296a458ce522325bc254a, type: 3}
     - target: {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       propertyPath: enemyType
       value: 
