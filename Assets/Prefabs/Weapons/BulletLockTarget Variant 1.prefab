@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2964017956643342995, guid: 940080f8f73d21e439c88341625444d0, type: 3}
       propertyPath: m_Name
-      value: BulletLockTarget Variant
+      value: BulletLockTarget Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 7906646319788510127, guid: 940080f8f73d21e439c88341625444d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61,20 +61,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672268040679908647, guid: 940080f8f73d21e439c88341625444d0, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8672268040679908647, guid: 940080f8f73d21e439c88341625444d0, type: 3}
       propertyPath: m_Color.b
-      value: 0.10980392
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672268040679908647, guid: 940080f8f73d21e439c88341625444d0, type: 3}
       propertyPath: m_Color.g
-      value: 0.10980392
+      value: 0.21568628
       objectReference: {fileID: 0}
     - target: {fileID: 8672268040679908647, guid: 940080f8f73d21e439c88341625444d0, type: 3}
       propertyPath: m_Color.r
-      value: 0.10980392
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7815369401539116099, guid: 940080f8f73d21e439c88341625444d0, type: 3}
