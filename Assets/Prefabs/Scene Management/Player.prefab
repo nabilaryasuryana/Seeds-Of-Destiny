@@ -691,8 +691,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016071022, y: -0.7471052}
-  m_Size: {x: 0.4183272, y: 0.7355348}
+  m_Offset: {x: -0.016071022, y: -0.45145094}
+  m_Size: {x: 0.4183272, y: 1.3268433}
   m_Direction: 0
 --- !u!210 &8468252439274009364
 SortingGroup:
