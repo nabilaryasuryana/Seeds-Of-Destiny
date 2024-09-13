@@ -8,6 +8,9 @@ public class InkExternalFunctions
     public void Bind(Story story, Animator emoteAnimator)
     {
         story.BindExternalFunction("playEmote", (string emoteName) => PlayEmote(emoteName, emoteAnimator));
+        story.BindExternalFunction("startQuest", (string questName) => {
+            StartQuest(questName);
+        });
     }
 
     public void Unbind(Story story) 
@@ -26,6 +29,13 @@ public class InkExternalFunctions
             Debug.LogWarning("Tried to play emote, but emote animator was "
                 + "not initialized when entering dialogue mode.");
         }
+    }
+
+    private void StartQuest(string questName)
+    {
+        Debug.Log("Quest Started: " + questName);
+        // Logika untuk memulai quest atau mengubah status game.
+        // Kamu bisa menambahkan quest ke daftar quest, mengubah state, dsb.
     }
     
 }

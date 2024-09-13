@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class BossAI : MonoBehaviour
@@ -11,9 +13,17 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float attackCooldown = 2f; // Cooldown serangan
     [SerializeField] private bool stopMovingWhileAttacking = false; // Apakah bos berhenti bergerak saat menyerang
 
+    [Header("Boss Settings")]
+    [SerializeField] private int bossNumber; // Nomor untuk ID
+    [SerializeField] private string bossTypeName; // Tipe bos
+    [SerializeField] private string sceneName; // Nama scene
+
+    private string bossID; // ID unik untuk bos
     private bool isAttacking = false; // Status apakah sedang menyerang
     private bool isAttackOnCooldown = false; // Status apakah serangan sedang cooldown
     private MonoBehaviour currentAttackType;
+    private EnemyHealth enemyHealth; // Menambahkan referensi EnemyHealth
+    private bool isDead = false; // Status apakah bos sudah mati
 
     private enum State
     {
@@ -24,17 +34,28 @@ public class BossAI : MonoBehaviour
 
     private State state;
     private EnemyPathfinding enemyPathfinding;
+    private string bossDataFile;
 
     private void Awake()
     {
         enemyPathfinding = GetComponent<EnemyPathfinding>();
+        enemyHealth = GetComponent<EnemyHealth>();
         state = State.Idle;
+
+        // Buat ID berdasarkan informasi yang ada
+        GenerateUniqueID();
+        bossDataFile = Application.persistentDataPath + "/boss_" + bossID + ".json";
+        LoadBossData();
+
         ChooseRandomAttackType(); // Set serangan awal
     }
 
     private void Update()
     {
-        MovementStateControl();
+        if (!isDead) // Jangan update jika bos sudah mati
+        {
+            MovementStateControl();
+        }
     }
 
     private void MovementStateControl()
@@ -60,12 +81,10 @@ public class BossAI : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, PlayerController.Instance.transform.position);
 
-        // Bos mulai mengejar jika berada dalam chaseRange tetapi di luar stopChaseRange
         if (distanceToPlayer < chaseRange && distanceToPlayer > stopChaseRange)
         {
             state = State.Chasing;
         }
-        // Jika terlalu dekat tapi masih di dalam attackRange, langsung pindah ke state Attacking
         else if (distanceToPlayer <= attackRange && !isAttackOnCooldown)
         {
             state = State.Attacking;
@@ -76,7 +95,6 @@ public class BossAI : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, PlayerController.Instance.transform.position);
 
-        // Pindah ke Idle jika terlalu dekat dengan player
         if (distanceToPlayer <= stopChaseRange)
         {
             state = State.Idle;
@@ -84,16 +102,14 @@ public class BossAI : MonoBehaviour
         }
         else
         {
-            // Update target secara langsung ke posisi player
-            enemyPathfinding.MoveTo(PlayerController.Instance.transform.position); // Bos terus mengejar player secara langsung
+            enemyPathfinding.MoveTo(PlayerController.Instance.transform.position);
         }
 
-        // Pindah ke attacking jika berada dalam attackRange dan tidak sedang cooldown
         if (distanceToPlayer <= attackRange && !isAttackOnCooldown)
         {
             state = State.Attacking;
         }
-        else if (distanceToPlayer > chaseRange) // Kembali ke Idle jika player keluar dari chaseRange
+        else if (distanceToPlayer > chaseRange)
         {
             state = State.Idle;
         }
@@ -101,45 +117,37 @@ public class BossAI : MonoBehaviour
 
     private void Attacking()
     {
-        if (isAttacking || isAttackOnCooldown) return; // Cegah serangan berulang saat serangan sedang berlangsung atau cooldown
+        if (isAttacking || isAttackOnCooldown) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, PlayerController.Instance.transform.position);
 
-        // Jika keluar dari jangkauan serang, kembali mengejar atau ke Idle
         if (distanceToPlayer > attackRange)
         {
             state = State.Chasing;
             return;
         }
 
-        // Memulai serangan
         isAttacking = true;
 
-        // Stop movement if needed
         if (stopMovingWhileAttacking)
         {
             enemyPathfinding.StopMoving();
         }
 
-        // Execute the current attack type
-        (currentAttackType as IEnemy).Attack();
+        (currentAttackType as IEnemy)?.Attack();
 
-        // Mulai cooldown setelah serangan selesai
         StartCoroutine(AttackCooldownRoutine());
     }
 
     private IEnumerator AttackCooldownRoutine()
     {
-        // Tandai bahwa serangan sedang cooldown
         isAttackOnCooldown = true;
 
-        // Tunggu hingga serangan selesai dan cooldown habis
         yield return new WaitForSeconds(attackCooldown);
 
-        isAttacking = false; // Serangan selesai
-        isAttackOnCooldown = false; // Cooldown selesai
+        isAttacking = false;
+        isAttackOnCooldown = false;
 
-        // Kembali ke state Chasing saat cooldown, jika player masih dalam jangkauan chase
         if (Vector2.Distance(transform.position, PlayerController.Instance.transform.position) <= chaseRange)
         {
             state = State.Chasing;
@@ -152,8 +160,68 @@ public class BossAI : MonoBehaviour
     {
         if (attackTypes.Count > 0)
         {
-            int randomIndex = Random.Range(0, attackTypes.Count);
+            int randomIndex = UnityEngine.Random.Range(0, attackTypes.Count);
             currentAttackType = attackTypes[randomIndex];
         }
     }
+
+    // Generate unique ID based on number, type, and scene
+    private void GenerateUniqueID()
+    {
+        bossID = $"{bossNumber}_{bossTypeName}_{sceneName}";
+    }
+
+    // Menyimpan data bos
+    public void SaveBossData()
+    {
+        BossData bossData = new BossData
+        {
+            id = bossID,
+            isDead = enemyHealth.CurrentHealth() <= 0
+        };
+
+        string json = JsonUtility.ToJson(bossData);
+        File.WriteAllText(bossDataFile, json);
+        Debug.Log("Boss Data Saved to JSON");
+    }
+
+    // Memuat data bos
+    private void LoadBossData()
+    {
+        if (File.Exists(bossDataFile))
+        {
+            string json = File.ReadAllText(bossDataFile);
+            BossData bossData = JsonUtility.FromJson<BossData>(json);
+
+            if (bossData.id == bossID)
+            {
+                isDead = bossData.isDead;
+                if (isDead)
+                {
+                    enemyHealth.DetectDeathWithoutDrop(); // Jika bos mati, panggil metode kematian
+                }
+                Debug.Log("Boss Data Loaded from JSON");
+            }
+            else
+            {
+                Debug.LogWarning("ID mismatch for boss data, using default values");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No boss data file found, using default values");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SaveBossData(); // Save data when the boss is destroyed
+    }
+}
+
+[System.Serializable]
+public class BossData
+{
+    public string id;
+    public bool isDead;
 }

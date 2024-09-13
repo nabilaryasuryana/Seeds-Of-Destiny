@@ -21,6 +21,8 @@ public class UIFadeWithSceneTransition : UIFade
         // Load scene baru
         SceneManager.LoadScene(sceneToLoad);
 
+        Destroy(gameObject);
+
         // Setelah load scene baru, fade to clear
         FadeToClear();
     }

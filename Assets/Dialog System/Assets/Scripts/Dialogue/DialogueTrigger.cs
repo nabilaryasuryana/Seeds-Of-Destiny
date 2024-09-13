@@ -16,22 +16,27 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerInRange;
     public bool autoPlayOnEntered;
 
-    private void Awake() 
+    protected virtual void Awake() 
     {
         playerInRange = false;
         visualCue.SetActive(false);
     }
 
+    public bool GetRangePlayer()
+    {
+        return playerInRange;
+    }
+
     private void Update() 
     {
-        if (autoPlayOnEntered)
-        {
-            DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
-            Destroy(this);
-        }
 
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
         {
+            if (autoPlayOnEntered)
+            {
+                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
+                Destroy(this);
+            }
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed()) 
             {
@@ -44,7 +49,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) 
+    protected virtual void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "Player")
         {
@@ -52,7 +57,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider) 
+    protected virtual void OnTriggerExit2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "Player")
         {

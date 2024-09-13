@@ -5,21 +5,31 @@ public class SettingsUI : MonoBehaviour
 {
     public Slider musicVolumeSlider; // Slider untuk volume musik
     public Slider sfxVolumeSlider;   // Slider untuk volume SFX
-    public AudioManager audioManager;
+    public AudioManager audioManager; // Referensi ke AudioManager
 
     private void Start()
     {
-        // Setel slider musik ke nilai yang disimpan
+        // Cek jika audioManager dan slider tidak null sebelum mengakses
         if (audioManager != null)
         {
-            musicVolumeSlider.value = audioManager.saveLoadSettings.musicVolume;
-            sfxVolumeSlider.value = audioManager.saveLoadSettings.sfxVolume;
+            // Setel slider musik ke nilai yang disimpan
+            if (musicVolumeSlider != null)
+                musicVolumeSlider.value = audioManager.saveLoadSettings.musicVolume;
+            
+            if (sfxVolumeSlider != null)
+                sfxVolumeSlider.value = audioManager.saveLoadSettings.sfxVolume;
         }
 
         // Listener untuk perubahan volume musik
-        musicVolumeSlider.onValueChanged.AddListener(delegate { OnMusicVolumeChanged(); });
+        if (musicVolumeSlider != null)
+            musicVolumeSlider.onValueChanged.AddListener(delegate { OnMusicVolumeChanged(); });
+
         // Listener untuk perubahan volume SFX
-        sfxVolumeSlider.onValueChanged.AddListener(delegate { OnSFXVolumeChanged(); });
+        if (sfxVolumeSlider != null)
+            sfxVolumeSlider.onValueChanged.AddListener(delegate { OnSFXVolumeChanged(); });
+
+        // Sembunyikan panel setting (jika ingin menyembunyikan GameObject yang menjalankan script ini)
+        gameObject.SetActive(false);
     }
 
     // Dipanggil saat slider volume musik berubah

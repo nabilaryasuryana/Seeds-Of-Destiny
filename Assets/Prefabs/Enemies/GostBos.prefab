@@ -784,6 +784,9 @@ MonoBehaviour:
   - {fileID: 5376169898452012584}
   attackCooldown: 5
   stopMovingWhileAttacking: 0
+  bossNumber: 0
+  bossTypeName: SlimeLauncher
+  sceneName: Playground
 --- !u!114 &5231790617107131194
 MonoBehaviour:
   m_ObjectHideFlags: 0

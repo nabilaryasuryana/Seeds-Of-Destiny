@@ -26,6 +26,7 @@ public class UI_QuestLog : MonoBehaviour
         QuestLog.Initialize();
         QuestLog.onQuestChange += UpdateQuests;
         UpdateQuests(new List<Quest>(), new List<Quest>());
+        questLogObject.SetActive(false);
     }
 
     private void Update() {
@@ -73,16 +74,38 @@ public class UI_QuestLog : MonoBehaviour
         }
     }
 
-    private void ShowQuestDetails(Quest quest) {
-        questDescription.gameObject.SetActive(quest != null);
+    private void ShowQuestDetails(Quest quest)
+    {
         if (quest == null)
+        {
+            // Mengatasi jika quest null
+            questDescription.gameObject.SetActive(false);
+            questDescriptionText.text = "";
             return;
-        questNameText.text = quest.questName;
-        questDescriptionText.text = quest.questDescription;
-        questObjectiveText.text = quest.objective.ToString();
-        questDescriptionText.rectTransform.sizeDelta = new Vector2(0, questDescriptionText.preferredHeight);
-        questDescription.sizeDelta = new Vector2(0, questDescriptionText.rectTransform.sizeDelta.y + 100);
+        }
+
+        // Aktifkan panel deskripsi karena quest tidak null
+        questDescription.gameObject.SetActive(true);
+
+        // Ubah objective ke string dengan pengecekan null
+        string objectiveText = quest.objective != null ? quest.objective.ToString() : "No objectives available.";
+
+        // Gabungkan semua teks menjadi satu string dengan format yang diinginkan
+        string formattedText = $"<b>{quest.questName ?? "Unknown Quest"}</b>\n\n" + // Nama Quest dengan Bold
+                            $"{quest.questDescription ?? "No description available."}\n\n" + // Deskripsi Quest biasa
+                            "<b>Objective:</b>\n" + // Tulisan "Objective" dengan Bold
+                            $"{objectiveText}"; // Isi Objective biasa
+
+        // Set semua teks gabungan ke questDescriptionText
+        questDescriptionText.text = formattedText;
+
+        // // Menyesuaikan ukuran teks dan panel deskripsi agar sesuai dengan konten
+        // LayoutRebuilder.ForceRebuildLayoutImmediate(questDescriptionText.rectTransform);
+        // questDescriptionText.rectTransform.sizeDelta = new Vector2(0, questDescriptionText.preferredHeight);
+        // questDescription.sizeDelta = new Vector2(0, questDescriptionText.rectTransform.sizeDelta.y + 0);
     }
+
+
 
     private Button InitializeButton(int index) {
         Button button = Instantiate(questInListPrefab, listTransform).GetComponent<Button>();

@@ -20,10 +20,12 @@ public class Prolog : MonoBehaviour
     private int index; // Indeks untuk melacak baris dialog saat ini
     private int currentBackgroundIndex; // Indeks untuk melacak background saat ini
     private UIFadeWithSceneTransition fadeTransition; // Referensi ke UIFadeWithSceneTransition
+    private bool fading;
 
     // Start is called before the first frame update
     void Start()
     {
+        fading = false;
         textComponent.text = string.Empty; // Mengosongkan teks di awal
         currentBackgroundIndex = 0; // Set background pertama
         backgroundImage.sprite = backgroundImages[currentBackgroundIndex]; // Atur background awal
@@ -38,8 +40,9 @@ public class Prolog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Input mouse untuk melanjutkan dialog
+        if (Input.GetButtonDown("Jump")) // Input mouse untuk melanjutkan dialog
         {
+            if (fading){return;}
             if (textComponent.text == lines[index])
             {
                 NextLine(); // Jika teks sudah tampil penuh, lanjut ke baris berikutnya
@@ -97,6 +100,7 @@ public class Prolog : MonoBehaviour
     IEnumerator FadeBackground()
     {
         // Fade out
+        fading = true;
         yield return StartCoroutine(FadeOut());
 
         // Ganti gambar background setelah fade out selesai
@@ -104,6 +108,7 @@ public class Prolog : MonoBehaviour
 
         // Fade in
         yield return StartCoroutine(FadeIn());
+        fading = false;
     }
 
     IEnumerator FadeOut()

@@ -1,25 +1,34 @@
 INCLUDE globals.ink
 
 // Starting point of the story
--> forest_encounter
+-> grave_encounter
 
-=== forest_encounter ===
-#speaker:Narrator #portrait:narrator_portrait #layout:left #audio:forest_ambience
-Aiden walks cautiously through the dense forest, feeling a sense of unease as he ventures deeper into the unknown.
+=== grave_encounter ===
+#speaker:Forest Spirit #portrait:Roh_Hutan #layout:right #audio:spirit_appears
+Welcome, young adventurer. You have finally arrived at the place where your journey truly begins.
 
-#speaker:Narrator #portrait:narrator_portrait #layout:left
-Suddenly, a mysterious voice echoes through the trees, soft yet commanding, urging him forward.
+#speaker:Aiden #portrait:Aiden #layout:left
+Who... are you? And can you tell me where I can plant this Seed of Life?
 
-#speaker:??? #potrait:???
-Go ahead and follow the path to the right until you find the mysterious grave.
+#speaker:Forest Spirit #portrait:Roh_Hutan #layout:right
+Patience, Aiden. Before you can plant the Seed, the forest must first be cleansed of the monsters that corrupt its land. Only then will the soil be ready to receive the Seed's power.
 
-#speaker:Narrator #portrait:narrator_portrait #layout:left
-Without knowing who or what spoke, Aiden feels compelled by the voice's mysterious nature. Trusting his instincts, he decides to follow the instructions, turning right and continuing his journey towards the unknown.
+#speaker:Aiden #portrait:Aiden #layout:left
+Cleansing the forest... Understood. What else must I do?
 
--> next_step
+#speaker:Forest Spirit #portrait:Roh_Hutan #layout:right
+There is one more task. You must find and bring me a sacred item that was lost in these woods. Only with this offering can the ritual to restore the land begin.
 
-=== next_step ===
-#speaker:Narrator #portrait:narrator_portrait #layout:left
-Aiden ventures forward, feeling a mix of curiosity and caution, as the dense forest slowly reveals a hidden path leading towards the mysterious grave.
+#speaker:Aiden #portrait:Aiden #layout:left
+Alright, I will defeat the monsters and retrieve the item. I won't let this forest remain corrupted any longer.
+
+#speaker:Forest Spirit #portrait:Roh_Hutan #layout:right
+Good. Remember, Aiden, the forest's fate now rests in your hands. Go forth and prove your worth.
+
+-> next_mission
+
+=== next_mission ===
+#speaker:Aiden #portrait:Aiden #layout:left #audio:determined_theme
+I will not fail. The forest will be restored, no matter what it takes.
 
 -> END

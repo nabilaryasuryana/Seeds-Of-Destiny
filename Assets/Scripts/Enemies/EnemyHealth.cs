@@ -47,6 +47,11 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    // Metode baru untuk mendeteksi kematian tanpa mendrop item
+    public void DetectDeathWithoutDrop() {
+        Destroy(gameObject);
+    }
+
     public int StartingHealth()
     {
         return startingHealth;
@@ -55,5 +60,10 @@ public class EnemyHealth : MonoBehaviour
     public int CurrentHealth()
     {
         return currentHealth;
+    }
+
+    public void SetHealth(int health)
+    {
+        currentHealth = health;
     }
 }
