@@ -10,10 +10,10 @@ Aiden walks cautiously through the dense forest, feeling a sense of unease as he
 #speaker:Narrator #portrait:narrator_portrait #layout:left
 Suddenly, a mysterious voice echoes through the trees, soft yet commanding, urging him forward.
 
-#speaker:??? #potrait:unknown #layout:right
+#speaker:??? #portrait:unknown #layout:right
 Go ahead and follow the path to the right until you find the mysterious grave.
 
-#speaker:Aiden #potrait:Aiden #layout:left
+#speaker:Aiden #portrait:Aiden #layout:left
 Wh-What, what was that!?
 
 Maybe i should follow the instruction

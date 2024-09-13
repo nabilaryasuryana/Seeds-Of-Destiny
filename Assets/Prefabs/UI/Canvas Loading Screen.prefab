@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 5295144091637382861}
   - component: {fileID: 5902659611560864760}
   - component: {fileID: 2334568451426862947}
+  - component: {fileID: 5733671962757424411}
   m_Layer: 5
   m_Name: Canvas Loading Screen
   m_TagString: Untagged
@@ -447,7 +448,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -456,7 +457,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &5295144091637382861
 MonoBehaviour:
@@ -512,6 +513,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loaderUI: {fileID: 720243314471877918}
   progressSlider: {fileID: 9093470045798902499}
+--- !u!210 &5733671962757424411
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198479066361145427}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
+  m_SortAtRoot: 0
 --- !u!1 &8811840425850368396
 GameObject:
   m_ObjectHideFlags: 0
