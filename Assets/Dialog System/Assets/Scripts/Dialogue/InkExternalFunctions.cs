@@ -32,6 +32,7 @@ public class InkExternalFunctions
     }
 
     // Method NewQuest untuk membuat quest dengan parameter yang diberikan
+    // Method NewQuest untuk membuat quest dengan parameter yang diberikan
     private void NewClearAreaQuest(string questName, string questDescription, int amount)
     {
         // Buat instance quest baru
@@ -44,11 +45,12 @@ public class InkExternalFunctions
         
         // Buat objective baru sesuai dengan parameter
         newQuest.objective = new Quest.Objective();
-        newQuest.objective.type = newQuest.objective.type.ClearArea;
+        newQuest.objective.type = Quest.Objective.Type.ClearArea; // Akses enum langsung menggunakan tipe Quest.Objective.Type
         newQuest.objective.amount = amount;
 
         // Tambahkan quest ke QuestLog
         QuestLog.AddQuest(newQuest);
     }
+
     
 }

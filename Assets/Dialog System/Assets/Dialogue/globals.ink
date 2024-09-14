@@ -1,7 +1,7 @@
 VAR pokemon_name = ""
 
 EXTERNAL playEmote(emoteName)
-EXTERNAL startQuest(questName)
+EXTERNAL newClearAreaQuest(questName, questDescription, questAmount)
 
 // Save System
 // EXTERNAL saveStateDialogue()

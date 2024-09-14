@@ -39,6 +39,8 @@ public class Quest
                     return "Cleared " + /*+ NpcList.NpcNameFromID(objectiveId) */ currentAmount + "/" + amount + " Area";
                 case Type.collect:
                     return "Collect " + /* ItemList.ItemNameFromID(objectiveId) + " " +*/ currentAmount + "/" + amount;
+                // case Type.goTo:
+                //     return "Go to " + /* ItemList.ItemNameFromID(objectiveId) + " " +*/ currentAmount + "/" + amount;
             }
             return "";
         }

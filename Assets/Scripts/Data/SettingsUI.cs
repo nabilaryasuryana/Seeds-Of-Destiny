@@ -28,8 +28,6 @@ public class SettingsUI : MonoBehaviour
         if (sfxVolumeSlider != null)
             sfxVolumeSlider.onValueChanged.AddListener(delegate { OnSFXVolumeChanged(); });
 
-        // Sembunyikan panel setting (jika ingin menyembunyikan GameObject yang menjalankan script ini)
-        gameObject.SetActive(false);
     }
 
     // Dipanggil saat slider volume musik berubah

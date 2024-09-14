@@ -130,6 +130,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5894018777106832070, guid: 2ed205f482d3f554cb088d25e6585645, type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: b355148411086ce47b2482d95a5e13b7, type: 3}
+    - target: {fileID: 5894018777106832070, guid: 2ed205f482d3f554cb088d25e6585645, type: 3}
+      propertyPath: dialogueID
+      value: ujicoba1
+      objectReference: {fileID: 0}
     - target: {fileID: 6550526147387459121, guid: 2ed205f482d3f554cb088d25e6585645, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.874139
@@ -18033,23 +18041,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &885234280 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3426149720230607161, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
-  m_PrefabInstance: {fileID: 1640594255}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &885234281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885234280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f118cb513e2d24dbe45c8b50cd5d35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &944265884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18107,6 +18098,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d71418c471f124b97fe5aa1fb87c31, type: 3}
+--- !u!1 &993004143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993004145}
+  - component: {fileID: 993004144}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &993004144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993004143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cd8fb76384fa04f8d30a1bc733602a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &993004145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993004143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6013103, y: 13.420892, z: 2969.0688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325934891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2938339120543436157, guid: 7618263d348671f43933f6743578180d, type: 3}
@@ -18143,7 +18178,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184938186656962743, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000010251999
+      value: 0.000021115513
       objectReference: {fileID: 0}
     - target: {fileID: 274087025298340399, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -18325,10 +18360,7 @@ PrefabInstance:
     - {fileID: 4687667173365508364, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3426149720230607161, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 885234281}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
 --- !u!4 &1662343584 stripped
 Transform:
@@ -18588,3 +18620,4 @@ SceneRoots:
   - {fileID: 207156859}
   - {fileID: 1854139382}
   - {fileID: 1640594255}
+  - {fileID: 993004145}
