@@ -17841,7 +17841,7 @@ PrefabInstance:
     - target: {fileID: 4533794169670593264, guid: 7618263d348671f43933f6743578180d, type: 3}
       propertyPath: m_ChildCameras.Array.data[1]
       value: 
-      objectReference: {fileID: 816296435}
+      objectReference: {fileID: 0}
     - target: {fileID: 4533794169670593264, guid: 7618263d348671f43933f6743578180d, type: 3}
       propertyPath: m_ChildCameras.Array.data[2]
       value: 
@@ -17877,7 +17877,7 @@ PrefabInstance:
     - target: {fileID: 4533794169670593264, guid: 7618263d348671f43933f6743578180d, type: 3}
       propertyPath: m_Instructions.Array.data[1].m_VirtualCamera
       value: 
-      objectReference: {fileID: 816296435}
+      objectReference: {fileID: 0}
     - target: {fileID: 4931863193965687631, guid: 7618263d348671f43933f6743578180d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.039985795
@@ -17982,17 +17982,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1325934893}
   m_SourcePrefab: {fileID: 100100000, guid: 7618263d348671f43933f6743578180d, type: 3}
---- !u!114 &816296435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7178890342825672015, guid: 7618263d348671f43933f6743578180d, type: 3}
-  m_PrefabInstance: {fileID: 805656526}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &831977109
 GameObject:
   m_ObjectHideFlags: 0
@@ -18049,7 +18038,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3426149720230607161, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
   m_PrefabInstance: {fileID: 1640594255}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &885234287
+--- !u!114 &885234281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18058,7 +18047,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 885234280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b328c9cb7345a744c9b9046e93dfa9f3, type: 3}
+  m_Script: {fileID: 11500000, guid: c8f118cb513e2d24dbe45c8b50cd5d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &944265884
@@ -18154,7 +18143,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184938186656962743, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000005190592
+      value: 0.000010251999
       objectReference: {fileID: 0}
     - target: {fileID: 274087025298340399, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -18339,7 +18328,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3426149720230607161, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 885234287}
+      addedObject: {fileID: 885234281}
   m_SourcePrefab: {fileID: 100100000, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
 --- !u!4 &1662343584 stripped
 Transform:

@@ -13,6 +13,9 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
+    [Header("Unique Dialogue ID")]
+    [SerializeField] private string dialogueID; // ID unik untuk setiap dialog
+
     private bool playerInRange;
     public bool autoPlayOnEntered;
 
@@ -20,27 +23,36 @@ public class DialogueTrigger : MonoBehaviour
     {
         playerInRange = false;
         visualCue.SetActive(false);
+
+        // Cek jika dialog ini sudah selesai
+        if (SaveSystem.Instance.IsDialogueCompleted(dialogueID))
+        {
+            Destroy(gameObject); // Hancurkan GameObject jika dialog sudah selesai
+        }
     }
 
+    // Ubah dari private menjadi protected atau public
     public bool GetRangePlayer()
     {
         return playerInRange;
     }
 
+
     private void Update() 
     {
-
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
         {
             if (autoPlayOnEntered)
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
-                Destroy(this);
+                CompleteDialogue(); // Tandai dialog selesai saat dijalankan
             }
+
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed()) 
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
+                CompleteDialogue(); // Tandai dialog selesai saat dijalankan
             }
         }
         else 
@@ -49,17 +61,23 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collider) 
+    private void CompleteDialogue()
     {
-        if (collider.gameObject.tag == "Player")
+        SaveSystem.Instance.MarkDialogueAsCompleted(dialogueID); // Tandai dialog sebagai selesai
+        Destroy(gameObject); // Hancurkan GameObject ini
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider) 
+    {
+        if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
         }
     }
 
-    protected virtual void OnTriggerExit2D(Collider2D collider) 
+    private void OnTriggerExit2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = false;
         }

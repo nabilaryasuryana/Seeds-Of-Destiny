@@ -8,8 +8,8 @@ public class InkExternalFunctions
     public void Bind(Story story, Animator emoteAnimator)
     {
         story.BindExternalFunction("playEmote", (string emoteName) => PlayEmote(emoteName, emoteAnimator));
-        story.BindExternalFunction("startQuest", (string questName) => {
-            StartQuest(questName);
+        story.BindExternalFunction("newClearAreaQuest", (string questName, string questDescription, int questAmount) => {
+            NewClearAreaQuest(questName, questDescription, questAmount);
         });
     }
 
@@ -31,11 +31,24 @@ public class InkExternalFunctions
         }
     }
 
-    private void StartQuest(string questName)
+    // Method NewQuest untuk membuat quest dengan parameter yang diberikan
+    private void NewClearAreaQuest(string questName, string questDescription, int amount)
     {
-        Debug.Log("Quest Started: " + questName);
-        // Logika untuk memulai quest atau mengubah status game.
-        // Kamu bisa menambahkan quest ke daftar quest, mengubah state, dsb.
+        // Buat instance quest baru
+        Quest newQuest = new Quest();
+        
+        // Set properti quest sesuai dengan parameter
+        newQuest.questName = questName;
+        newQuest.questDescription = questDescription;
+        newQuest.questCategory = 0; // Atur kategori jika ada, misalnya 0 untuk kategori umum
+        
+        // Buat objective baru sesuai dengan parameter
+        newQuest.objective = new Quest.Objective();
+        newQuest.objective.type = newQuest.objective.type.ClearArea;
+        newQuest.objective.amount = amount;
+
+        // Tambahkan quest ke QuestLog
+        QuestLog.AddQuest(newQuest);
     }
     
 }

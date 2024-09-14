@@ -194,7 +194,7 @@
             "actions": [
                 {
                     "name": "Click",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "7a025c46-8f13-4e6f-bc63-ec6c361158d7",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -203,7 +203,7 @@
                 },
                 {
                     "name": "Point",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "64e60bd7-a102-4c69-b7ed-6ad0864d1739",
                     "expectedControlType": "",
                     "processors": "",

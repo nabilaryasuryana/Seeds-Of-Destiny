@@ -27,5 +27,6 @@ Without knowing who or what spoke, Aiden feels compelled by the voice's mysterio
 #speaker:Narrator #portrait:narrator_portrait #layout:left
 Aiden ventures forward, feeling a mix of curiosity and caution, as the dense forest slowly reveals a hidden path leading towards the mysterious grave.
 ~ startQuest("firstQuest")
+// ~ saveOneWayDialogue("Narrator.ink")
 
 -> END

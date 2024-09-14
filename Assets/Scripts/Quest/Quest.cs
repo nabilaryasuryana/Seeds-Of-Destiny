@@ -13,7 +13,7 @@ public class Quest
     [System.Serializable]
     public class Objective
     {
-        public enum Type { kill, talk, collect }
+        public enum Type { kill, ClearArea, collect }
         public int objectiveId;
         public int amount;
         [System.NonSerialized]
@@ -35,8 +35,8 @@ public class Quest
             switch (type) {
                 case Type.kill:
                     return "Kill " + /* MonsterList.MonsterNameFromID(objectiveId) + " " +*/ currentAmount + "/" + amount;
-                case Type.talk:
-                    return "Talk to " /*+ NpcList.NpcNameFromID(objectiveId) */;
+                case Type.ClearArea:
+                    return "Cleared " + /*+ NpcList.NpcNameFromID(objectiveId) */ currentAmount + "/" + amount + " Area";
                 case Type.collect:
                     return "Collect " + /* ItemList.ItemNameFromID(objectiveId) + " " +*/ currentAmount + "/" + amount;
             }

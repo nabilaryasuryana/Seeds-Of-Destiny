@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossAI : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class BossAI : MonoBehaviour
 
         // Buat ID berdasarkan informasi yang ada
         GenerateUniqueID();
+        sceneName = SceneManager.GetActiveScene().name;
         bossDataFile = Application.persistentDataPath + "/boss_" + bossID + ".json";
         LoadBossData();
 

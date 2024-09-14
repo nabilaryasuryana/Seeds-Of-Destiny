@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class EnemyAI : MonoBehaviour
 
         // Buat ID berdasarkan informasi yang ada
         GenerateUniqueID();
+        sceneName = SceneManager.GetActiveScene().name;
         enemyDataFile = Application.persistentDataPath + "/enemy_" + enemyID + ".json";
         LoadEnemyData(); // Load data jika ada
     }
