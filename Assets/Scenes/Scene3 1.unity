@@ -1334,6 +1334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wind Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8264102514591551006, guid: 9dc3b9d755114084590c27dea570bb55, type: 3}
+      propertyPath: sceneName
+      value: Scene3 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1985,6 +1989,10 @@ PrefabInstance:
     - target: {fileID: 7771254347565520687, guid: 9dc3b9d755114084590c27dea570bb55, type: 3}
       propertyPath: m_Name
       value: Wind Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264102514591551006, guid: 9dc3b9d755114084590c27dea570bb55, type: 3}
+      propertyPath: sceneName
+      value: Scene3 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23471,6 +23479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8264102514591551006, guid: 18941ead3733a2e459be6ea63a2a2d2d, type: 3}
+      propertyPath: sceneName
+      value: Scene3 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23656,6 +23668,10 @@ PrefabInstance:
     - target: {fileID: 7771254347565520687, guid: 18941ead3733a2e459be6ea63a2a2d2d, type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264102514591551006, guid: 18941ead3733a2e459be6ea63a2a2d2d, type: 3}
+      propertyPath: sceneName
+      value: Scene3 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

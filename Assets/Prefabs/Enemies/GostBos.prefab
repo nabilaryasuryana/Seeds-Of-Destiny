@@ -27,15 +27,15 @@ RectTransform:
   m_GameObject: {fileID: 505199013702198441}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49219, y: 0.49219, z: 0.49219}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 351491926986417995}
+  m_Father: {fileID: 4771078127910636230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5124784, y: 0.05279736}
+  m_AnchorMax: {x: 0.6978908, y: 0.109000005}
+  m_AnchoredPosition: {x: -0.29104614, y: -0.49768066}
+  m_SizeDelta: {x: 151.65811, y: 25.375183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1209498386692768579
 CanvasRenderer:
@@ -106,7 +106,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6204504286254269415}
+  - {fileID: 351491926986417995}
+  - {fileID: 4058064519458639924}
+  - {fileID: 4000940964591228927}
+  - {fileID: 471015011907552649}
   m_Father: {fileID: 597382343464039313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -202,17 +205,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2801445086419129842}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49219, y: 0.49219, z: 0.49219}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6204504286254269415}
+  m_Father: {fileID: 4771078127910636230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.46958733, y: 0.019797359}
+  m_AnchorMax: {x: 0.5292392, y: 0.12879737}
+  m_AnchoredPosition: {x: 0.59375, y: -0.5000305}
+  m_SizeDelta: {x: 52, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5131985230001081712
 CanvasRenderer:
@@ -286,7 +289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.8508, y: -0.7001}
+  m_AnchoredPosition: {x: 3.85083, y: -0.70010376}
   m_SizeDelta: {x: 7.7017, y: 11.2026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4078437078789321256
@@ -351,19 +354,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3660916023091308466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49219, y: 0.49219, z: 0.49219}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4058064519458639924}
-  - {fileID: 4000940964591228927}
-  m_Father: {fileID: 6204504286254269415}
+  m_Children: []
+  m_Father: {fileID: 4771078127910636230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170.9, y: 6.1}
-  m_SizeDelta: {x: 301.6581, y: 50.3752}
+  m_AnchorMin: {x: 0.5124784, y: 0.05279736}
+  m_AnchorMax: {x: 0.6954125, y: 0.109000005}
+  m_AnchoredPosition: {x: 0.20895386, y: 0.002319336}
+  m_SizeDelta: {x: 152.65808, y: 26.375183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6485526650560306661
 MonoBehaviour:
@@ -416,43 +417,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &5449248594807659091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6204504286254269415}
-  m_Layer: 5
-  m_Name: Boss Health Container
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6204504286254269415
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5449248594807659091}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49219, y: 0.49219, z: 0.49219}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 351491926986417995}
-  - {fileID: 471015011907552649}
-  m_Father: {fileID: 4771078127910636230}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 403.5937, y: -485.2969}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7548972573296326573
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,16 +596,16 @@ RectTransform:
   m_GameObject: {fileID: 8762784459566268750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49219, y: 0.49219, z: 0.49219}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7307576665138374059}
-  m_Father: {fileID: 351491926986417995}
+  m_Father: {fileID: 4771078127910636230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5.0000153, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchorMin: {x: 0.5162392, y: 0.066}
+  m_AnchorMax: {x: 0.688, y: 0.09579736}
+  m_AnchoredPosition: {x: -0.75198364, y: 0.002319336}
+  m_SizeDelta: {x: 143.65808, y: 12.187592}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2973763974654000740
 PrefabInstance:
@@ -786,7 +750,7 @@ MonoBehaviour:
   stopMovingWhileAttacking: 0
   bossNumber: 0
   bossTypeName: SlimeLauncher
-  sceneName: Playground
+  sceneName: 
 --- !u!114 &5231790617107131194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 6485526650560306661}
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 6222139997367330898}
   player: {fileID: 0}
   boss: {fileID: 0}
   activationRadius: 20
@@ -901,3 +865,14 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7588396738447152291, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
   m_PrefabInstance: {fileID: 2973763974654000740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6222139997367330898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9159641904286963254, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
+  m_PrefabInstance: {fileID: 2973763974654000740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072209957984494573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9015f75b026bc3f439ef0172a0cb81af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
