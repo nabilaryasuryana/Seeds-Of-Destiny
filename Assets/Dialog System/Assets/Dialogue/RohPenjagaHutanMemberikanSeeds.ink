@@ -30,5 +30,5 @@ Good. Remember, Aiden, the forest's fate now rests in your hands. Go forth and p
 === next_mission ===
 #speaker:Aiden #portrait:Aiden #layout:left #audio:determined_theme
 I will not fail. The forest will be restored, no matter what it takes.
-
+~ newClearAreaQuest("Forest purifying", "The Forest Spirit want Aiden to clear the forest from the corupted creature before plant the seed", 3, 2)
 -> END

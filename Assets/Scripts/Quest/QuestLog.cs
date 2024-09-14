@@ -21,12 +21,25 @@ public static class QuestLog
         onQuestChange.Invoke(questList, completedQuest);
     }
 
-    public static void CheckQuestObjective(Quest.Objective.Type type, int id) {
-        foreach (Quest quest in questList)
-            if (quest.objective.CheckObjectiveCompleted(type, id))
-                CompleteQuest(quest);
+    public static void CheckQuestObjective(Quest.Objective.Type type, int id) 
+    {
+        List<Quest> questsToComplete = new List<Quest>();
+
+        foreach (Quest quest in questList) {
+            if (quest.objective.CheckObjectiveCompleted(type, id)) {
+                questsToComplete.Add(quest);
+            }
+        }
+
+        // Proses quest yang perlu diselesaikan setelah iterasi
+        foreach (Quest quest in questsToComplete) {
+            CompleteQuest(quest);
+        }
+
         onQuestChange.Invoke(questList, completedQuest);
     }
+
+
 
     public static void CompleteQuest(Quest quest) {
         questList.Remove(quest);

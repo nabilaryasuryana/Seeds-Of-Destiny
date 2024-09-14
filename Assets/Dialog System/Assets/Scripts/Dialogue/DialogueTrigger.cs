@@ -19,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerInRange;
     public bool autoPlayOnEntered;
 
-    protected virtual void Awake() 
+    protected virtual void Awake()
     {
         playerInRange = false;
         visualCue.SetActive(false);

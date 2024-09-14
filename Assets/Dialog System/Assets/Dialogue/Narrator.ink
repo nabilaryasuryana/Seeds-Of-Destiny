@@ -26,7 +26,7 @@ Without knowing who or what spoke, Aiden feels compelled by the voice's mysterio
 === next_step ===
 #speaker:Narrator #portrait:narrator_portrait #layout:left
 Aiden ventures forward, feeling a mix of curiosity and caution, as the dense forest slowly reveals a hidden path leading towards the mysterious grave.
-~ newClearAreaQuest("firstQuest", "agdigaygwuygwydgquw", 3)
+~ newGoToQuest("A strange sound", "Aiden suddenly hear a strange sound that lead Aiden to follow the path to the right and search a mysterious grave", 1)
 // ~ saveOneWayDialogue("Narrator.ink")
 
 -> END
