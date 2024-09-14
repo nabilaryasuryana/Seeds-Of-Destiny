@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       propertyPath: enemyType
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8264102514591551006}
     - target: {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       propertyPath: enemyTypeName
       value: Shooter_Wind
@@ -96,3 +96,14 @@ MonoBehaviour:
   timeBetweenBursts: 0.1
   restTime: 1
   startingDistance: 0.1
+--- !u!114 &8264102514591551006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
+  m_PrefabInstance: {fileID: 7511804746006907558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771254347565520687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32efe2ab44e5f044b930d3709dffb438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
