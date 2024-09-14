@@ -321,7 +321,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3636865612242376246}
         m_TargetAssemblyTypeName: VolumeSetting, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 1
@@ -610,9 +610,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3636865612242376246}
         m_TargetAssemblyTypeName: VolumeSetting, Assembly-CSharp
-        m_MethodName: SetSFXVolume
+        m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1927,6 +1927,10 @@ GameObject:
   - component: {fileID: 8746417577583781205}
   - component: {fileID: 6890384986196006118}
   - component: {fileID: 6414305853957331226}
+  - component: {fileID: 3636865612242376246}
+  - component: {fileID: 565338273769662358}
+  - component: {fileID: 7527482851637812055}
+  - component: {fileID: 863570863699124508}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -1952,8 +1956,8 @@ RectTransform:
   - {fileID: 5228827612032787203}
   - {fileID: 8810473371223731616}
   - {fileID: 8189814005675189600}
-  - {fileID: 8191960592931151049}
   - {fileID: 7549929627555758784}
+  - {fileID: 8191960592931151049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2068,6 +2072,63 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   pausePanelScreen: {fileID: 709526259996945044}
+--- !u!114 &3636865612242376246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4751125413335888746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041cda5e17bbead4d8a534aa749aeb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMixer: {fileID: 24100000, guid: bb0758f534667ea469773194f247402c, type: 2}
+  musicSlider: {fileID: 3233446625124437102}
+  SFXSlider: {fileID: 5210205381799936361}
+--- !u!114 &565338273769662358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4751125413335888746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b38e12d312beb4db558179d34abfd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  saveLoadSettings: {fileID: 7527482851637812055}
+--- !u!114 &7527482851637812055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4751125413335888746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3efc0eae378494caf2c58fb847cd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicVolume: 0.5
+  sfxVolume: 0.5
+--- !u!114 &863570863699124508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4751125413335888746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c5afb668af5a44abf8f8c74ba77ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 030515f205b54fc478961cbe39c4e75e, type: 3}
 --- !u!1 &4950898475444933362
 GameObject:
   m_ObjectHideFlags: 0
