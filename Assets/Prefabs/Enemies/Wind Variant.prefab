@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       propertyPath: enemyType
       value: 
-      objectReference: {fileID: 6602391183902703012}
+      objectReference: {fileID: 0}
     - target: {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       propertyPath: enemyTypeName
       value: Shooter_Wind
@@ -71,14 +71,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 280982643503242633, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6602391183902703012}
+      addedObject: {fileID: 1647349416811447679}
   m_SourcePrefab: {fileID: 100100000, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
 --- !u!1 &7771254347565520687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 280982643503242633, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
   m_PrefabInstance: {fileID: 7511804746006907558}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6602391183902703012
+--- !u!114 &1647349416811447679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1948083705180164056, guid: c2c70b010dba2f74d8bbda606fe81de1, type: 3}
-  bulletMoveSpeed: 5
+  bulletMoveSpeed: 0.1
   burstCount: 1
   timeBetweenBursts: 0.1
   restTime: 1
