@@ -14012,6 +14012,7 @@ GameObject:
   - component: {fileID: 1643305715}
   - component: {fileID: 1643305714}
   - component: {fileID: 1643305716}
+  - component: {fileID: 1643305717}
   m_Layer: 0
   m_Name: Forest Enterance
   m_TagString: Untagged
@@ -14086,6 +14087,20 @@ MonoBehaviour:
   inkJSON: {fileID: 4900000, guid: b355148411086ce47b2482d95a5e13b7, type: 3}
   dialogueID: Prologue
   autoPlayOnEntered: 1
+  destroyable: 1
+--- !u!114 &1643305717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643305712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8118b96968288e54387adcb387530a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScript: {fileID: 1643305716}
 --- !u!1 &1701551812 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 536766214098066194, guid: 689f0b89dddc9ea43a7cbe38c8857baa, type: 3}
@@ -17255,7 +17270,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184938186656962743, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000038731298
+      value: 0.0008903979
       objectReference: {fileID: 0}
     - target: {fileID: 274087025298340399, guid: 9a1960647b106db4c88c921543cb8f8d, type: 3}
       propertyPath: m_AnchorMax.x

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -11,72 +10,105 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private Animator emoteAnimator;
 
     [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private TextAsset inkJSON; // Hanya satu dialog
 
     [Header("Unique Dialogue ID")]
     [SerializeField] private string dialogueID; // ID unik untuk setiap dialog
 
     private bool playerInRange;
     public bool autoPlayOnEntered;
+    public bool destroyable;
 
     protected virtual void Awake()
     {
         playerInRange = false;
-        visualCue.SetActive(false);
+        visualCue.SetActive(false); // Visual cue nonaktif di awal
 
-        // Cek jika dialog ini sudah selesai
-        if (SaveSystem.Instance.IsDialogueCompleted(dialogueID))
+        // Cek apakah SaveSystem sudah diinisialisasi
+        if (SaveSystem.Instance != null)
         {
-            Destroy(gameObject); // Hancurkan GameObject jika dialog sudah selesai
+            // Jika dialog sudah diselesaikan sebelumnya, cek status dari sistem penyimpanan
+            if (SaveSystem.Instance.IsDialogueCompleted(dialogueID))
+            {
+                Debug.Log("Dialogue with ID " + dialogueID + " is already completed.");
+                if (destroyable)
+                {
+                    Destroy(gameObject); // Hancurkan GameObject jika destroyable diaktifkan
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("SaveSystem instance is not available.");
         }
     }
 
-    // Ubah dari private menjadi protected atau public
     public bool GetRangePlayer()
     {
         return playerInRange;
     }
 
-
-    private void Update() 
+    private void Update()
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying) 
+        // Selalu aktifkan visual cue dan proses jika pemain berada dalam jangkauan
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            visualCue.SetActive(true); // Tampilkan visual cue saat pemain dalam jangkauan
+
             if (autoPlayOnEntered)
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
-                CompleteDialogue(); // Tandai dialog selesai saat dijalankan
+                StartDialogue();
             }
 
-            visualCue.SetActive(true);
-            if (InputManager.GetInstance().GetInteractPressed()) 
+            // Tekan tombol interaksi untuk memulai dialog
+            if (InputManager.GetInstance().GetInteractPressed())
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
-                CompleteDialogue(); // Tandai dialog selesai saat dijalankan
+                StartDialogue();
             }
         }
-        else 
+        else
         {
-            visualCue.SetActive(false);
+            visualCue.SetActive(false); // Sembunyikan visual cue jika pemain tidak dalam jangkauan
         }
+    }
+
+    private void StartDialogue()
+    {
+        // Masukkan dialog ke DialogueManager dan mulai dialog
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON, emoteAnimator);
+        CompleteDialogue(); // Tandai dialog selesai setelah dimulai
     }
 
     private void CompleteDialogue()
     {
-        SaveSystem.Instance.MarkDialogueAsCompleted(dialogueID); // Tandai dialog sebagai selesai
-        Destroy(gameObject); // Hancurkan GameObject ini
+        if (SaveSystem.Instance != null)
+        {
+            SaveSystem.Instance.MarkDialogueAsCompleted(dialogueID); // Tandai dialog selesai
+
+            // Hancurkan objek ini jika destroyable diaktifkan
+            if (destroyable)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            Debug.LogError("SaveSystem instance is not available.");
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) 
+    private void OnTriggerEnter2D(Collider2D collider)
     {
+        // Jika pemain masuk dalam jangkauan, set playerInRange menjadi true
         if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider) 
+    private void OnTriggerExit2D(Collider2D collider)
     {
+        // Jika pemain keluar dari jangkauan, set playerInRange menjadi false
         if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = false;

@@ -21,9 +21,10 @@ public class DestinationTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Panggil QuestLog untuk mengecek quest 'goTo'
-            QuestLog.CheckQuestObjective(Quest.Objective.Type.ClearArea, destinationID);
+            QuestLog.CheckQuestObjective(Quest.Objective.Type.goTo, destinationID);
             Debug.Log("Player reached destination with ID: " + destinationID); // Periksa apakah kondisi ini terpenuhi
         }
+        Destroy(this);
     }
 
 

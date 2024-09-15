@@ -29,9 +29,15 @@ public class UI_QuestLog : MonoBehaviour
         questLogObject.SetActive(false);
     }
 
+    void Start()
+    {
+        QuestLog.LoadQuestProgress();
+    }
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Q))
             questLogObject.SetActive(!questLogObject.activeSelf);
+            // QuestLog.LoadQuestProgress();
         if (questLogObject.activeSelf && Input.GetKeyDown(KeyCode.Escape))
             questLogObject.SetActive(false);
     }

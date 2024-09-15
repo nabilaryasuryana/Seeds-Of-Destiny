@@ -8,6 +8,7 @@ TagManager:
   - Audio
   - Music
   - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX

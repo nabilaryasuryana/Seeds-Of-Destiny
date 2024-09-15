@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Quest 
 {
+    public string questID; 
     public string questName;
     public string questDescription;
     public Objective objective;
@@ -16,8 +17,8 @@ public class Quest
         public enum Type { kill, ClearArea, collect, goTo }
         public int objectiveId;
         public int amount;
-        [System.NonSerialized]
         public int currentAmount;
+        [System.NonSerialized]
         public Type type;
 
         public bool CheckObjectiveCompleted(Type type, int id) {
@@ -40,9 +41,16 @@ public class Quest
                 case Type.collect:
                     return "Collect " + /* ItemList.ItemNameFromID(objectiveId) + " " +*/ currentAmount + "/" + amount;
                 case Type.goTo:
-                    return "Go to the destiny"/* ItemList.ItemNameFromID(objectiveId) + " " +*/;
+                    return "Go to the destination"/* ItemList.ItemNameFromID(objectiveId) + " " +*/;
             }
             return "";
         }
     }
+}
+
+[System.Serializable]
+public class QuestProgressData
+{
+    public List<Quest> activeQuests;
+    public List<Quest> completedQuests;
 }

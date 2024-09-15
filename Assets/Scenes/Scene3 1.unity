@@ -22123,6 +22123,7 @@ GameObject:
   - component: {fileID: 1699631545}
   - component: {fileID: 1699631544}
   - component: {fileID: 1699631543}
+  - component: {fileID: 1699631547}
   m_Layer: 0
   m_Name: prasasti 6
   m_TagString: Untagged
@@ -22293,6 +22294,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75ca753281da96409d7d71c7ae40be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1699631547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699631540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb898f0ea6362c5428303b188dfb5b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaID: 1
+  objectiveId: 1
 --- !u!1 &1726436432
 GameObject:
   m_ObjectHideFlags: 0

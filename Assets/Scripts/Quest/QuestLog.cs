@@ -15,10 +15,28 @@ public static class QuestLog
         completedQuest = new List<Quest>();
     }
 
+    public static void Start()
+    {
+        LoadQuestProgress();
+    }
+    public static void LoadQuestProgress()
+    {
+        QuestProgressData loadedData = QuestProgressManager.LoadProgress();
+        if (loadedData != null)
+        {
+            questList = loadedData.activeQuests;
+            completedQuest = loadedData.completedQuests;
+            if (onQuestChange != null)
+                onQuestChange.Invoke(questList, completedQuest);
+        }
+    }
+
+
     public static void AddQuest(Quest quest) {
         questList.Add(quest);
         HandleOwnedItems(quest);
         onQuestChange.Invoke(questList, completedQuest);
+        QuestProgressManager.SaveProgress(questList, completedQuest);
     }
 
     public static void CheckQuestObjective(Quest.Objective.Type type, int id) 
@@ -48,6 +66,8 @@ public static class QuestLog
         // Inventory.giveGold(quest.goldReward);
         // Character.giveExp(quest.expReward);
         onQuestChange.Invoke(questList, completedQuest);
+        QuestProgressManager.SaveProgress(questList, completedQuest);
+
     }
 
     private static void HandleOwnedItems(Quest quest) {
