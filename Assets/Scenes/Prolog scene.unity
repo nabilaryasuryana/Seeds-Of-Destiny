@@ -971,7 +971,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 07045a98ca8403b4ead4e8d22c261c8d, type: 3}
   - {fileID: 21300000, guid: 489659a9a20d1fb4686bdf58238a53f8, type: 3}
   - {fileID: 21300000, guid: 48112aa7f4d33a34792adeffb572e4b2, type: 3}
-  - {fileID: 21300000, guid: b9bf30fa78cbe3e4eb94dd1baa108485, type: 3}
+  - {fileID: 21300000, guid: 1e82be8a1db8e254ab066c95bf2009d2, type: 3}
   backgroundCanvasGroup: {fileID: 427419599}
   fadeDuration: 1
   imageChangeIndices: 030000000400000006000000
