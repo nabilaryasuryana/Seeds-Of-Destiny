@@ -4,7 +4,7 @@ INCLUDE globals.ink
 -> forest_encounter
 
 === forest_encounter ===
-#speaker:Narrator #portrait:narrator_portrait #layout:left #audio:animal_crossing_high
+#speaker:Narrator #portrait:narrator_portrait #layout:left #audio:animal_crossing_mid
 Aiden walks cautiously through the dense forest, feeling a sense of unease as he ventures deeper into the unknown.
 
 #speaker:Narrator #portrait:narrator_portrait #layout:left

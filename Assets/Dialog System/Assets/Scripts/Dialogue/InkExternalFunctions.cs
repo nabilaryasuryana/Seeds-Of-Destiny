@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;  // Pastikan Anda mengimpor namespace ini
 
 public class InkExternalFunctions
 {
@@ -15,12 +16,21 @@ public class InkExternalFunctions
         story.BindExternalFunction("newGoToQuest", (string questName, string questDescription, int destinationId) => {
             NewGoToQuest(questName, questDescription, destinationId);
         });
+        story.BindExternalFunction("newKillQuest", (string questName, string questDescription, int amount, int questId) => {
+            NewKillQuest(questName, questDescription, amount, questId);
+        });
+        story.BindExternalFunction("ending", () => {
+            Ending();
+        });
     }
-
 
     public void Unbind(Story story) 
     {
         story.UnbindExternalFunction("playEmote");
+        story.UnbindExternalFunction("newClearAreaQuest");
+        story.UnbindExternalFunction("newGoToQuest");
+        story.UnbindExternalFunction("newKillQuest");
+        story.UnbindExternalFunction("ending");
     }
 
     public void PlayEmote(string emoteName, Animator emoteAnimator)
@@ -53,7 +63,6 @@ public class InkExternalFunctions
         QuestLog.AddQuest(newQuest);
     }
 
-    
     private void NewGoToQuest(string questName, string questDescription, int destinationId)
     {
         Quest newQuest = new Quest();
@@ -69,5 +78,26 @@ public class InkExternalFunctions
 
         QuestLog.AddQuest(newQuest);
     }
-  
+
+    private void NewKillQuest(string questName, string questDescription, int amount, int questId)
+    {
+        Quest newQuest = new Quest();
+        newQuest.questID = Guid.NewGuid().ToString();  // Inisialisasi questID dengan GUID unik
+        newQuest.questName = questName;
+        newQuest.questDescription = questDescription;
+        newQuest.questCategory = 0;
+
+        newQuest.objective = new Quest.Objective();
+        newQuest.objective.type = Quest.Objective.Type.kill;
+        newQuest.objective.amount = amount;
+        newQuest.objective.objectiveId = questId; // Tetapkan ID tujuan
+
+        QuestLog.AddQuest(newQuest);
+    }
+
+    // Fungsi untuk memuat scene dengan nama "ending"
+    private void Ending()
+    {
+        SceneManager.LoadScene("ending");
+    }
 }

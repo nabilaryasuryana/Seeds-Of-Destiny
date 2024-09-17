@@ -4,9 +4,24 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
+public class DialogueState
+{
+    public string dialogueID;
+    public int currentDialogueIndex;
+    public bool dialoguePlayed;
+
+    public DialogueState(string id, int index, bool played)
+    {
+        dialogueID = id;
+        currentDialogueIndex = index;
+        dialoguePlayed = played;
+    }
+}
+
+[Serializable]
 public class SaveData
 {
-    public List<string> completedDialogues = new List<string>(); // Menyimpan ID dialog yang sudah selesai
+    public List<DialogueState> dialogueStates = new List<DialogueState>(); // Menyimpan state dari dialog
 }
 
 public class SaveSystem : MonoBehaviour
@@ -53,19 +68,50 @@ public class SaveSystem : MonoBehaviour
         File.WriteAllText(saveFilePath, json);
     }
 
-    // Menandai dialog sebagai selesai berdasarkan ID
-    public void MarkDialogueAsCompleted(string dialogueID)
+    // Menyimpan status dialog ke dalam SaveData
+    public void SaveDialogueState(string dialogueID, DialogueState newState)
     {
-        if (!saveData.completedDialogues.Contains(dialogueID))
+        bool found = false;
+        for (int i = 0; i < saveData.dialogueStates.Count; i++)
         {
-            saveData.completedDialogues.Add(dialogueID);
-            SaveToFile();
+            if (saveData.dialogueStates[i].dialogueID == dialogueID)
+            {
+                saveData.dialogueStates[i] = newState; // Update state yang sudah ada
+                found = true;
+                break;
+            }
         }
+        if (!found)
+        {
+            saveData.dialogueStates.Add(newState); // Tambahkan state baru jika belum ada
+        }
+        SaveToFile(); // Simpan ke file setelah diperbarui
+    }
+
+    // Mengambil state dialog berdasarkan ID
+    public DialogueState GetDialogueState(string dialogueID)
+    {
+        foreach (DialogueState state in saveData.dialogueStates)
+        {
+            if (state.dialogueID == dialogueID)
+            {
+                return state;
+            }
+        }
+        return null; // Jika tidak ada state untuk ID tersebut
     }
 
     // Mengecek apakah dialog sudah selesai
     public bool IsDialogueCompleted(string dialogueID)
     {
-        return saveData.completedDialogues.Contains(dialogueID);
+        DialogueState state = GetDialogueState(dialogueID);
+        return state != null && state.dialoguePlayed;
+    }
+
+    // Menandai dialog sebagai selesai berdasarkan ID
+    public void MarkDialogueAsCompleted(string dialogueID, int currentDialogueIndex)
+    {
+        DialogueState state = new DialogueState(dialogueID, currentDialogueIndex, true);
+        SaveDialogueState(dialogueID, state);
     }
 }

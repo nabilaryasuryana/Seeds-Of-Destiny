@@ -645,7 +645,9 @@ MonoBehaviour:
   visualCue: {fileID: 1914223914493761604}
   emoteAnimator: {fileID: 7240749898954350149}
   inkJSON: {fileID: 4900000, guid: 9eec2f8fc2037f341b38f69382bea524, type: 3}
-  autoPlayOnEntered: 0
+  dialoguePlaylist:
+  - {fileID: 4900000, guid: 8c2be387d1a8fed43b1e3a18d0594220, type: 3}
+  dialogueID: 2
   canvasGroup: {fileID: 8500296082803268077}
   fadeDuration: 0.5
 --- !u!61 &1255632886542314927

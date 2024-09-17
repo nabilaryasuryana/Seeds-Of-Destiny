@@ -1,80 +1,42 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
-public class QuestClearedArea : MonoBehaviour
+public class QuestClearArea : MonoBehaviour
 {
-    public int areaID = 1; // ID dari tujuan untuk quest 'goTo'
-    public int objectiveId  = 1;
-
-    private bool questCompleted = false; // Untuk memastikan quest hanya dipanggil sekali
-    private string saveFilePath;
+    public int areaID; // ID dari area yang harus di-clear
+    public int objectiveId;
+    private AreaManager areaManager; // Referensi ke AreaManager untuk memeriksa status area
 
     private void Start()
     {
-        saveFilePath = Application.persistentDataPath + "/questData.json";
-        LoadQuestData(); // Muat data quest saat mulai
-    }
+        // Mendapatkan referensi ke AreaManager di scene
+        areaManager = AreaManager.Instance;
 
-    void Update()
-    {
-        // Cek jika belum menyelesaikan quest dan tidak ada objek dengan tag 'Enemy'
-        if (!questCompleted && !HasEnemiesInScene())
+        // Jika area sudah bersih, hancurkan script ini
+        if (areaManager.IsAreaCleared(areaID))
         {
-            // Panggil QuestLog untuk mengecek quest 'goTo'
-            QuestLog.CheckQuestObjective(Quest.Objective.Type.ClearArea, objectiveId);
-            questCompleted = true; // Tandai quest sudah selesai
-            SaveQuestData(); // Simpan data quest setelah menyelesaikan
+            Debug.Log($"Area {areaID} sudah bersih, script QuestClearArea dihentikan.");
+            Destroy(this); // Script dihapus karena area sudah bersih
         }
     }
 
-    // Fungsi untuk memeriksa keberadaan objek dengan tag 'Enemy' dalam scene
+    private void Update()
+    {
+        // Jika area belum bersih dan semua musuh sudah hilang, tandai area sebagai bersih
+        if (!areaManager.IsAreaCleared(areaID) && !HasEnemiesInScene())
+        {
+            Debug.Log($"Area {areaID} berhasil dibersihkan.");
+            QuestLog.CheckQuestObjective(Quest.Objective.Type.ClearArea, objectiveId);
+            areaManager.SetAreaCleared(areaID); // Tandai area sebagai bersih
+            Destroy(this); // Hancurkan script karena area sudah bersih
+        }
+    }
+
+    // Fungsi untuk memeriksa apakah masih ada musuh di dalam scene
     private bool HasEnemiesInScene()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         return enemies.Length > 0;
     }
-
-    // Fungsi untuk menyimpan data quest ke file JSON
-    private void SaveQuestData()
-    {
-        QuestData data = new QuestData
-        {
-            questCompleted = questCompleted,
-            areaID = areaID
-        };
-
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(saveFilePath, json);
-
-        Debug.Log("Quest data saved to " + saveFilePath);
-    }
-
-    // Fungsi untuk memuat data quest dari file JSON
-    private void LoadQuestData()
-    {
-        if (File.Exists(saveFilePath))
-        {
-            string json = File.ReadAllText(saveFilePath);
-            QuestData data = JsonUtility.FromJson<QuestData>(json);
-
-            questCompleted = data.questCompleted;
-            areaID = data.areaID;
-
-            Debug.Log("Quest data loaded from " + saveFilePath);
-        }
-        else
-        {
-            Debug.Log("No quest data found. Starting with default settings.");
-        }
-    }
-}
-
-[Serializable]
-public class QuestData
-{
-    public bool questCompleted;
-    public int areaID;
 }

@@ -1,30 +1,45 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AreaExit : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad;
-    [SerializeField] private string sceneTransitionName;
+    [SerializeField] private string sceneToLoad; // Nama scene yang akan dimuat
+    [SerializeField] private string sceneTransitionName; // Nama transisi scene
 
-    private float waitToLoadTime = 1f;
+    public bool offOnAwake = false; // Jika true, nonaktifkan komponen saat Awake
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.GetComponent<PlayerController>()) {
+    private float waitToLoadTime = 1f; // Waktu tunggu sebelum scene dimuat
+
+    void Awake()
+    {
+        // Nonaktifkan komponen jika offOnAwake adalah true
+        if (offOnAwake)
+        {
+            this.enabled = false; // Menonaktifkan skrip
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Periksa jika objek yang masuk adalah pemain
+        if (other.GetComponent<PlayerController>() != null)
+        {
+            // Set nama transisi scene
             SceneManagement.Instance.SetTransitionName(sceneTransitionName);
-            UIFade.Instance.FadeToBlack();
+            UIFade.Instance.FadeToBlack(); // Fade to black
+
+            // Mulai coroutine untuk memuat scene
             StartCoroutine(LoadSceneRoutine());
         }
     }
 
-    private IEnumerator LoadSceneRoutine() {
-        while (waitToLoadTime >= 0) 
-        {
-            waitToLoadTime -= Time.deltaTime;
-            yield return null;
-        }
+    private IEnumerator LoadSceneRoutine()
+    {
+        // Tunggu waktu yang ditentukan
+        yield return new WaitForSeconds(waitToLoadTime);
 
+        // Muat scene yang ditentukan
         SceneManager.LoadScene(sceneToLoad);
     }
 }

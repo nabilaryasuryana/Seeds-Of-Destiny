@@ -685,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9159641904286963254, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
       propertyPath: startingHealth
-      value: 2
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1914232073161376952, guid: 1427ce17f32622e44966a7d452e5ecfc, type: 3}
@@ -739,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456bc212ed5045b4fa71020ee18d21e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveId: 3
   attackRange: 10
   chaseRange: 100
   stopChaseRange: 9
@@ -750,7 +751,7 @@ MonoBehaviour:
   stopMovingWhileAttacking: 0
   bossNumber: 0
   bossTypeName: SlimeLauncher
-  sceneName: 
+  sceneName: khasidga
 --- !u!114 &5231790617107131194
 MonoBehaviour:
   m_ObjectHideFlags: 0

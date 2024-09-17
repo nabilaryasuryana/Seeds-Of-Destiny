@@ -18,7 +18,6 @@ public class Quest
         public int objectiveId;
         public int amount;
         public int currentAmount;
-        [System.NonSerialized]
         public Type type;
 
         public bool CheckObjectiveCompleted(Type type, int id) {

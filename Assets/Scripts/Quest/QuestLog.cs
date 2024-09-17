@@ -19,6 +19,7 @@ public static class QuestLog
     {
         LoadQuestProgress();
     }
+
     public static void LoadQuestProgress()
     {
         QuestProgressData loadedData = QuestProgressManager.LoadProgress();
@@ -30,7 +31,6 @@ public static class QuestLog
                 onQuestChange.Invoke(questList, completedQuest);
         }
     }
-
 
     public static void AddQuest(Quest quest) {
         questList.Add(quest);
@@ -55,9 +55,8 @@ public static class QuestLog
         }
 
         onQuestChange.Invoke(questList, completedQuest);
+        QuestProgressManager.SaveProgress(questList, completedQuest);
     }
-
-
 
     public static void CompleteQuest(Quest quest) {
         questList.Remove(quest);
@@ -67,7 +66,6 @@ public static class QuestLog
         // Character.giveExp(quest.expReward);
         onQuestChange.Invoke(questList, completedQuest);
         QuestProgressManager.SaveProgress(questList, completedQuest);
-
     }
 
     private static void HandleOwnedItems(Quest quest) {
@@ -76,6 +74,14 @@ public static class QuestLog
         int amount = 0; // Inventory.GetCountOfIndex(quest.objective.objectiveId); 
         if (quest.objective.ForceAddObjective(amount))
             CompleteQuest(quest);
+    }
+
+    public static List<Quest> GetActiveQuests() {
+        return new List<Quest>(questList); // Return a copy to avoid modification
+    }
+
+    public static List<Quest> GetCompletedQuests() {
+        return new List<Quest>(completedQuest); // Return a copy to avoid modification
     }
 
     public static Quest getQuestNo(int index) {

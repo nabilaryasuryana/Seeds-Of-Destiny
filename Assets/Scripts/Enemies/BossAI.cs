@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class BossAI : MonoBehaviour
 {
+    public int objectiveId = 3;
     [SerializeField] private float attackRange = 5f; // Jarak di mana bos akan menyerang
     [SerializeField] private float chaseRange = 10f; // Jarak di mana bos akan mulai mengejar
     [SerializeField] private float stopChaseRange = 3f; // Jarak di mana bos berhenti mengejar
@@ -217,6 +218,7 @@ public class BossAI : MonoBehaviour
 
     private void OnDestroy()
     {
+        QuestLog.CheckQuestObjective(Quest.Objective.Type.kill, objectiveId);
         SaveBossData(); // Save data when the boss is destroyed
     }
 }
