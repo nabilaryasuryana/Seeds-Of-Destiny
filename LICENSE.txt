@@ -1,6 +1,6 @@
 Copyright (c) 2025 Nabil Arya Suryana. All rights reserved.
 
-This project's deployed application (website or service) is free to use for personal and non-commercial purposes.
+This project's deployed application game is free to use for personal and non-commercial purposes.
 
 However, the source code is NOT open source and may not be copied, modified, distributed, or used without explicit written permission.
 
